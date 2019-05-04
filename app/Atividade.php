@@ -10,8 +10,6 @@ class Atividade extends Model
 
     protected $fillable = ['NomeProcesso'];
 
-    public $timestamps = false;
-
     public function meta(){
         return $this->hasMany(Meta::class);
     }

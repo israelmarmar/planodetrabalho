@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMetaTable extends Migration
+class CreateMensalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('meta', function (Blueprint $table) {
+        Schema::create('mensal', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Atividade');
-            $table->integer('Responsavel');
-            $table->unsignedBigInteger('atividade_id');
-            $table->foreign('atividade_id')
-                ->references('id')->on('atividade')
+            $table->string('Relatorios');
+            $table->string('Reunioes');
+            $table->string('Status');
+            $table->unsignedBigInteger('id_meta');
+            $table->foreign('id_meta')
+                ->references('id')->on('meta')
                 ->onDelete('cascade');
-
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meta');
+        Schema::dropIfExists('mensal');
     }
 }

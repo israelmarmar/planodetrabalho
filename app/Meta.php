@@ -8,11 +8,19 @@ class Meta extends Model
 {
     protected $table = 'meta';
 
-    protected $fillable = ['Atividade', 'Responsavel', 'idAtividade'];
-
-    public $timestamps = false;
+    protected $fillable = ['Atividade', 'Responsavel', 'atividade_id'];
 
     public function atividade(){
         return $this->belongsTo(Atividade::class);
     }
+
+    public function diaria(){
+        return $this->hasMany(Diaria::class);
+    }
+
+    public function semanal(){
+        return $this->hasMany(Semanal::class);
+    }
+
+
 }

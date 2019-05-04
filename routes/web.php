@@ -16,6 +16,26 @@ Route::get('/', function () {
 });
 
 Route::get('/atividade', 'AtividadeController@index');
-Route::get('/criaratividade', 'AtividadeController@create');
+Route::get('/atividade/criar', 'AtividadeController@create');
 Route::get('/meta', 'MetaController@index');
-Route::get('/criarmeta', 'MetaController@create');
+Route::get('/meta/criar', 'MetaController@create');
+
+Route::get('/meta', 'MetaController@index');
+Route::get('/meta/criar', 'MetaController@create');
+Route::get('/meta', 'MetaController@index');
+Route::get('/meta/criar', 'MetaController@create');
+
+Route::get('/diaria', 'DiariaController@index');
+Route::get('/diaria/criar', 'DiariaController@create');
+Route::get('/diaria', 'DiariaController@index');
+Route::get('/diaria/criar', 'DiariaController@create');
+
+Route::get('/semanal', 'SemanalController@index');
+Route::get('/semanal/criar', 'SemanalController@create');
+Route::get('/semanal', 'SemanalController@index');
+Route::get('/semanal/criar', 'SemanalController@create');
+
+Route::get('/mensal', 'MensalController@index');
+Route::get('/mensal/criar', 'MensalController@create');
+Route::get('/mensal', 'MensalController@index');
+Route::get('/mensal/criar', 'MensalController@create');

@@ -17,4 +17,4 @@ Abra no diretório do projeto e gere as tabelas do banco de dados por
 
 - php artisan migrate
 
-Teste e crie novas requisições GET e POST no arquivo plano de trabalho.postman_collection.json pelo software Postman.
+Teste e crie novas requisições GET e POST no arquivo tests\planodetrabalho.postman_collection.json pelo software Postman.

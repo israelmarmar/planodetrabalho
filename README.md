@@ -13,7 +13,9 @@ Clona o repositório com o comando
 
 - git clone https://github.com/israelmarmar/planodetrabalho
 
-Abra no diretório do projeto e gere as tabelas do banco de dados por
+Abra no diretório do projeto e renomeie o arquivo .env.example por .env e coloque as configurações do banco de dados
+
+Gere as tabelas do banco de dados por
 
 - php artisan migrate
 

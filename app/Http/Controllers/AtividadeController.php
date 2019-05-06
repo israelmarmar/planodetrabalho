@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Http\Response;
+
 use App\Atividade;
 
 class AtividadeController extends Controller
@@ -48,7 +50,7 @@ class AtividadeController extends Controller
      */
     public function show($id)
     {
-        //
+        return Atividade::find($id);
     }
 
     /**
@@ -82,6 +84,7 @@ class AtividadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Atividade::destroy($id);
+        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
     }
 }

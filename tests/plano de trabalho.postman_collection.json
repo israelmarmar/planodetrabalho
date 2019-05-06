@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "d6ef49ae-9066-4491-8fb4-7520c9e7855b",
+		"name": "plano de trabalho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/criaratividade",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"NomeProcesso\": \"manuntecao de geradores\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/criaratividade",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"criaratividade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/criarmeta?Atividade=checagem&Responsavel=77&idAtividade=2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/criarmeta?Atividade=checagem&Responsavel=77&idAtividade=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"criarmeta"
+					],
+					"query": [
+						{
+							"key": "Atividade",
+							"value": "checagem"
+						},
+						{
+							"key": "Responsavel",
+							"value": "77"
+						},
+						{
+							"key": "idAtividade",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

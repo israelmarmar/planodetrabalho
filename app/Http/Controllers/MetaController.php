@@ -48,7 +48,7 @@ class MetaController extends Controller
      */
     public function show($id)
     {
-        //
+        Meta::find($id);
     }
 
     /**
@@ -82,6 +82,7 @@ class MetaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Meta::destroy($id);
+        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
     }
 }

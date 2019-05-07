@@ -48,7 +48,7 @@ class DiariaController extends Controller
      */
     public function show($id)
     {
-        //
+        Diaria::find($id);
     }
 
     /**
@@ -82,6 +82,7 @@ class DiariaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Diaria::destroy($id);
+        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
     }
 }

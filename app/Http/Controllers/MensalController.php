@@ -48,7 +48,7 @@ class MensalController extends Controller
      */
     public function show($id)
     {
-        //
+        Mensal::find($id);
     }
 
     /**
@@ -82,6 +82,7 @@ class MensalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Mensal::destroy($id);
+        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
     }
 }

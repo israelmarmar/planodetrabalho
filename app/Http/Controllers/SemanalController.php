@@ -48,7 +48,7 @@ class SemanalController extends Controller
      */
     public function show($id)
     {
-        //
+        Semanal::find($id);
     }
 
     /**
@@ -82,6 +82,7 @@ class SemanalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Semanal::destroy($id);
+        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
     }
 }

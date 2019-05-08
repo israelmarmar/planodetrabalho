@@ -71,7 +71,20 @@ class MetaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $meta = Meta::find($id);
+
+        if($request->has('Atividade'))
+        $meta->Atividade = $request->Atividade;
+
+        if($request->has('Responsavel'))
+        $meta->Responsavel = $request->Responsavel;
+
+        if($request->has('atividade_id'))
+        $meta->atividade_id = $request->atividade_id;
+
+        $meta->touch();
+
+        $meta->save();
     }
 
     /**

@@ -71,7 +71,29 @@ class DiariaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $diaria = Diaria::find($id);
+
+        if($request->has('RotinaDefinida'))
+        $diaria->RotinaDefinida = $request->RotinaDefinida;
+
+        if($request->has('Checagem'))
+        $diaria->Checagem = $request->Checagem;
+
+        if($request->has('Backup'))
+        $diaria->Backup = $request->Backup;
+
+        if($request->has('Manuntencao'))
+        $diaria->Manuntencao = $request->Manuntencao;
+
+        if($request->has('Status'))
+        $diaria->Status = $request->Status;
+
+        if($request->has('meta_id'))
+        $diaria->meta_id = $request->meta_id;
+
+        $diaria->touch();
+
+        $diaria->save();
     }
 
     /**

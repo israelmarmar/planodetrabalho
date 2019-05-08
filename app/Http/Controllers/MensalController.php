@@ -71,7 +71,23 @@ class MensalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mensal = Mensal::find($id);
+
+        if($request->has('Relatorios'))
+        $mensal->Relatorios = $request->Relatorios;
+
+        if($request->has('Reunioes'))
+        $mensal->Reunioes = $request->Reunioes;
+
+        if($request->has('Status'))
+        $mensal->Status = $request->Status;
+
+        if($request->has('Status'))
+        $mensal->Status = $request->Status;
+
+        $mensal->touch();
+
+        $mensal->save();
     }
 
     /**

@@ -73,7 +73,13 @@ class AtividadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $atividade = Atividade::find($id);
+
+        $atividade->NomeProcesso = $request->NomeProcesso;
+
+        $atividade->touch();
+
+        $atividade->save();
     }
 
     /**
@@ -85,6 +91,6 @@ class AtividadeController extends Controller
     public function destroy($id)
     {
         Atividade::destroy($id);
-        return ["status" => "ok", "code"=> 200, 'message' => 'removido'];
+        return ["status" => "ok", "code" => 200, 'message' => 'removido'];
     }
 }

@@ -18,8 +18,8 @@ class CreateMensalTable extends Migration
             $table->string('Relatorios');
             $table->string('Reunioes');
             $table->string('Status');
-            $table->unsignedBigInteger('id_meta');
-            $table->foreign('id_meta')
+            $table->unsignedBigInteger('meta_id');
+            $table->foreign('meta_id')
                 ->references('id')->on('meta')
                 ->onDelete('cascade');
             $table->timestamps();

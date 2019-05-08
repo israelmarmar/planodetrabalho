@@ -71,7 +71,29 @@ class SemanalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $semanal = Semanal::find($id);
+
+        if($request->has('RotinaDefinida'))
+        $semanal->RotinaDefinida = $request->RotinaDefinida;
+
+        if($request->has('Checagem'))
+        $semanal->Checagem = $request->Checagem;
+
+        if($request->has('Backup'))
+        $semanal->Backup = $request->Backup;
+
+        if($request->has('Manuntencao'))
+        $semanal->Manuntencao = $request->Manuntencao;
+
+        if($request->has('Status'))
+        $semanal->Status = $request->Status;
+
+        if($request->has('meta_id'))
+        $semanal->meta_id = $request->meta_id;
+
+        $semanal->touch();
+
+        $semanal->save();
     }
 
     /**

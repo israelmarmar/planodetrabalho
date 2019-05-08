@@ -1,45 +1,12 @@
 {
 	"info": {
-		"_postman_id": "d6ef49ae-9066-4491-8fb4-7520c9e7855b",
+		"_postman_id": "ee3d2e84-a2ad-43e1-ba7d-f2e8d676e09a",
 		"name": "plano de trabalho",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8000/criaratividade",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"NomeProcesso\": \"manuntecao de geradores\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8000/criaratividade",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"criaratividade"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/criarmeta?Atividade=checagem&Responsavel=77&idAtividade=2",
+			"name": "http://localhost:8000/atividade",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -55,14 +22,52 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/criarmeta?Atividade=checagem&Responsavel=77&idAtividade=2",
+					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=atividade desnecessaria",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"criarmeta"
+						"atividade",
+						"criar"
+					],
+					"query": [
+						{
+							"key": "NomeProcesso",
+							"value": "atividade desnecessaria"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/meta/criar?Atividade=checagem&Responsavel=77&idAtividade=2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/meta/criar?Atividade=checagem&Responsavel=77&atividade_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"meta",
+						"criar"
 					],
 					"query": [
 						{
@@ -74,9 +79,173 @@
 							"value": "77"
 						},
 						{
-							"key": "idAtividade",
+							"key": "atividade_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/atividade/criar?NomeProcesso=manunteção de rede",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=manunteção de rede",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"atividade",
+						"criar"
+					],
+					"query": [
+						{
+							"key": "NomeProcesso",
+							"value": "manunteção de rede"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/atividade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/atividade",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"atividade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/atividade/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/atividade/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"atividade",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/meta/criar?Atividade=analise de rede&Responsavel=77&atividade_id=2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/meta/criar?Atividade=analise de rede&Responsavel=77&atividade_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"meta",
+						"criar"
+					],
+					"query": [
+						{
+							"key": "Atividade",
+							"value": "analise de rede"
+						},
+						{
+							"key": "Responsavel",
+							"value": "77"
+						},
+						{
+							"key": "atividade_id",
 							"value": "2"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/meta/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/meta/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"meta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/atividade/delete/4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/atividade/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"atividade",
+						"delete",
+						"4"
 					]
 				}
 			},

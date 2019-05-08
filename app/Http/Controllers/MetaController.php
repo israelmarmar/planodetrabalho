@@ -48,7 +48,7 @@ class MetaController extends Controller
      */
     public function show($id)
     {
-        Meta::find($id);
+        return Meta::find($id);
     }
 
     /**

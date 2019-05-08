@@ -48,7 +48,7 @@ class SemanalController extends Controller
      */
     public function show($id)
     {
-        Semanal::find($id);
+        return Semanal::find($id);
     }
 
     /**

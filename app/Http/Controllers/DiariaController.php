@@ -48,7 +48,7 @@ class DiariaController extends Controller
      */
     public function show($id)
     {
-        Diaria::find($id);
+        return Diaria::find($id);
     }
 
     /**

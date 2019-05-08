@@ -48,7 +48,7 @@ class MensalController extends Controller
      */
     public function show($id)
     {
-        Mensal::find($id);
+        return Mensal::find($id);
     }
 
     /**

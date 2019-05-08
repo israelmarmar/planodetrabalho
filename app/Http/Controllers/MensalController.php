@@ -88,6 +88,8 @@ class MensalController extends Controller
         $mensal->touch();
 
         $mensal->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

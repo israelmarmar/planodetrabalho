@@ -85,6 +85,8 @@ class MetaController extends Controller
         $meta->touch();
 
         $meta->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

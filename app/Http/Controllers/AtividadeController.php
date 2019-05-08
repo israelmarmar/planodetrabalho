@@ -80,6 +80,8 @@ class AtividadeController extends Controller
         $atividade->touch();
 
         $atividade->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

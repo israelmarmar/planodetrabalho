@@ -94,6 +94,8 @@ class DiariaController extends Controller
         $diaria->touch();
 
         $diaria->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

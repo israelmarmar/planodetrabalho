@@ -94,6 +94,8 @@ class SemanalController extends Controller
         $semanal->touch();
 
         $semanal->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

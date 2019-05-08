@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('atividade');
 });
 
 Route::get('/atividade', 'AtividadeController@index');
-Route::get('/atividade/criar', 'AtividadeController@create');
+Route::get('/atividade/criar', 'AtividadeController@create')->name('criaratividade');
 Route::get('/atividade/{id}', 'AtividadeController@show');
 Route::post('/atividade/delete/{id}', 'AtividadeController@destroy');
 

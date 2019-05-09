@@ -53,6 +53,11 @@ class AtividadeController extends Controller
         return Atividade::find($id);
     }
 
+    public function mostrar_metas($id)
+    {
+        return Atividade::find($id)->meta;
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

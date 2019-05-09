@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/atividade', 'AtividadeController@index');
 Route::get('/atividade/criar', 'AtividadeController@create')->name('criaratividade');
 Route::get('/atividade/{id}', 'AtividadeController@show');
+Route::get('/atividade/{id}/mostrarmetas', 'AtividadeController@mostrar_metas');
 Route::post('/atividade/delete/{id}', 'AtividadeController@destroy');
 Route::get('/atividade/atualizar/{id}', 'AtividadeController@update');
 

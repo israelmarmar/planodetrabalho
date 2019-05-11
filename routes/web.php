@@ -46,3 +46,9 @@ Route::get('/mensal/criar', 'MensalController@create');
 Route::get('/mensal/{id}', 'MensalController@show');
 Route::post('/mensal/delete/{id}', 'MensalController@destroy');
 Route::post('/mensal/atualizar/{id}', 'MensalController@update');
+
+Route::get('/relatorio', 'RelatorioController@index');
+Route::get('/relatorio/criar', 'RelatorioController@create');
+Route::get('/relatorio/{id}', 'RelatorioController@show');
+Route::post('/relatorio/delete/{id}', 'RelatorioController@destroy');
+Route::post('/relatorio/atualizar/{id}', 'RelatorioController@update');

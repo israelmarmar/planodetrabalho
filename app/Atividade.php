@@ -13,4 +13,8 @@ class Atividade extends Model
     public function meta(){
         return $this->hasMany(Meta::class);
     }
+
+    public function relatorio(){
+        return $this->hasMany(Relatorio::class);
+    }
 }

@@ -63,10 +63,18 @@
             margin-bottom: 30px;
         }
     </style>
+
+
 </head>
 
 <body>
-
+    
+    
+    <div class="list-group">
+        @foreach($Atividades as $Atividade)
+        <a href= {{"/atividades/".$Atividade["id"]}} class="list-group-item">{{$Atividade["NomeProcesso"]}}</a>
+        @endforeach
+    </div>
 
     <form action="{{ route('criaratividade') }}">
         <div class="form-group">

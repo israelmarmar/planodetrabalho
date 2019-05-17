@@ -12,7 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('atividade');
+    $Atividades = (new App\Http\Controllers\AtividadeController())->index();
+    return view('atividades')->with('Atividades', json_decode($Atividades,true));
+
+});
+
+Route::get('/atividades/{id}', function ($id) {
+    $Metas = (new App\Http\Controllers\AtividadeController())->mostrar_metas($id);
+    return view('atividadesgerais')->with('Metas', json_decode($Metas,true));
+
+});
+
+Route::get('/atividades/meta/{id}', function ($id) {
+    $Diarias = (new App\Http\Controllers\MetaController())->metas_diarias($id);
+    $Semanais = (new App\Http\Controllers\MetaController())->metas_semanais($id);
+    $Mensais = (new App\Http\Controllers\MetaController())->metas_mensais($id);
+    return view('meta', ["Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
 Route::get('/atividade', 'AtividadeController@index');
@@ -24,10 +39,11 @@ Route::get('/atividade/atualizar/{id}', 'AtividadeController@update');
 
 
 Route::get('/meta', 'MetaController@index');
-Route::get('/meta/criar', 'MetaController@create');
+Route::get('/meta/criar', 'MetaController@create')->name('criarmeta');
 Route::get('/meta/{id}', 'MetaController@show');
 Route::post('/meta/delete/{id}', 'MetaController@destroy');
 Route::get('/meta/atualizar/{id}', 'MetaController@update');
+Route::get('/meta/{id}/diaria', 'MetaController@metas_diarias');
 
 Route::get('/diaria', 'DiariaController@index');
 Route::get('/diaria/criar', 'DiariaController@create');

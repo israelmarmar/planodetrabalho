@@ -97,7 +97,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=manunteção de rede",
+					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=checagem de cabos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +110,7 @@
 					"query": [
 						{
 							"key": "NomeProcesso",
-							"value": "manunteção de rede"
+							"value": "checagem de cabos"
 						}
 					]
 				}
@@ -327,6 +327,65 @@
 							"key": "Hora_inicio",
 							"value": "null"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/diaria/criar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"RotinaDefinida\":\"ggg\",\n\t\"Checagem\":\"fsddf\",\n\t\"Backup\":\"fgdfg\",\n\t\"Manuntencao\":\"fdgd\",\n\t\"Status\":\"dfdfd\",\n\t\"meta_id\":1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/diaria/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"diaria",
+						"criar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/meta/1/diaria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/meta/1/diaria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"meta",
+						"1",
+						"diaria"
 					]
 				}
 			},

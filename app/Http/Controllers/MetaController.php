@@ -89,6 +89,21 @@ class MetaController extends Controller
         return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
+    public function metas_diarias($id)
+    {
+        return Meta::find($id)->diaria;
+    }
+
+    public function metas_semanais($id)
+    {
+        return Meta::find($id)->semanal;
+    }
+
+    public function metas_mensais($id)
+    {
+        return Meta::find($id)->mensal;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

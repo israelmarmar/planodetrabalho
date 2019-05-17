@@ -22,5 +22,9 @@ class Meta extends Model
         return $this->hasMany(Semanal::class);
     }
 
+    public function mensal(){
+        return $this->hasMany(Mensal::class);
+    }
+
 
 }

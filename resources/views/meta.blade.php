@@ -95,8 +95,8 @@
         <div class="form-group">
             <label for="atividade_id">meta_id:</label>
             <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
-            <label for="NomeProcesso">Nova meta diaria:</label>
-            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+            <label for="RotinaDefinida">Rotina diaria:</label>
+            <input class="form-control" id="RotinaDefinida" name="RotinaDefinida">
         </div>
 
         <button type="submit" class="btn btn-default">Criar</button>
@@ -107,8 +107,8 @@
         <div class="form-group">
             <label for="atividade_id">meta_id:</label>
             <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
-            <label for="NomeProcesso">Nova meta semanal:</label>
-            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+            <label for="RotinaDefinida">Rotina semanal:</label>
+            <input class="form-control" id="RotinaDefinida" name="RotinaDefinida">
         </div>
 
         <button type="submit" class="btn btn-default">Criar</button>
@@ -119,8 +119,8 @@
         <div class="form-group">
             <label for="atividade_id">meta_id:</label>
             <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
-            <label for="NomeProcesso">Nova meta mensal:</label>
-            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+            <label for="RotinaDefinida">Rotina mensal:</label>
+            <input class="form-control" id="RotinaDefinida" name="RotinaDefinida">
         </div>
 
         <button type="submit" class="btn btn-default">Criar</button>

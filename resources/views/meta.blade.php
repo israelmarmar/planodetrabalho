@@ -67,11 +67,15 @@
 
 <body>
 
+    <h1>Diaria</h1>
+
     <div class="list-group">
         @foreach($Diarias as $Diaria)
         <a href= "#" class="list-group-item">{{$Diaria["RotinaDefinida"]}}</a>
         @endforeach
     </div>
+
+    <h1>Semanal</h1>
 
     <div class="list-group">
         @foreach($Semanais as $Semanal)
@@ -79,11 +83,49 @@
         @endforeach
     </div>
 
+    <h1>Mensal</h1>
+
     <div class="list-group">
         @foreach($Mensais as $Mensal)
         <a href= "#" class="list-group-item">{{$Mensal["RotinaDefinida"]}}</a>
         @endforeach
     </div>
+
+    <form action="{{ route('criarmetadiaria') }}">
+        <div class="form-group">
+            <label for="atividade_id">meta_id:</label>
+            <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
+            <label for="NomeProcesso">Nova meta diaria:</label>
+            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+        </div>
+
+        <button type="submit" class="btn btn-default">Criar</button>
+
+    </form>
+
+    <form action="{{ route('criarmetasemanal') }}">
+        <div class="form-group">
+            <label for="atividade_id">meta_id:</label>
+            <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
+            <label for="NomeProcesso">Nova meta semanal:</label>
+            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+        </div>
+
+        <button type="submit" class="btn btn-default">Criar</button>
+
+    </form>
+
+    <form action="{{ route('criarmetamensal') }}">
+        <div class="form-group">
+            <label for="atividade_id">meta_id:</label>
+            <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
+            <label for="NomeProcesso">Nova meta mensal:</label>
+            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+        </div>
+
+        <button type="submit" class="btn btn-default">Criar</button>
+
+    </form>
 
 </body>
 

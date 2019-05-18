@@ -11,22 +11,26 @@
 |
 */
 
+use App\Http\Controllers\AtividadeController;
+use App\Http\Controllers\MetaController;
+
+
 Route::get('/', function () {
-    $Atividades = (new App\Http\Controllers\AtividadeController())->index();
+    $Atividades = (new AtividadeController())->index();
     return view('atividades')->with('Atividades', json_decode($Atividades,true));
 
 });
 
 Route::get('/atividades/{id}', function ($id) {
-    $Metas = (new App\Http\Controllers\AtividadeController())->mostrar_metas($id);
+    $Metas = (new AtividadeController())->mostrar_metas($id);
     return view('atividadesgerais')->with('Metas', json_decode($Metas,true));
 
 });
 
 Route::get('/atividades/meta/{id}', function ($id) {
-    $Diarias = (new App\Http\Controllers\MetaController())->metas_diarias($id);
-    $Semanais = (new App\Http\Controllers\MetaController())->metas_semanais($id);
-    $Mensais = (new App\Http\Controllers\MetaController())->metas_mensais($id);
+    $Diarias = (new MetaController())->metas_diarias($id);
+    $Semanais = (new MetaController())->metas_semanais($id);
+    $Mensais = (new MetaController())->metas_mensais($id);
     return view('meta', ["Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
@@ -46,19 +50,19 @@ Route::get('/meta/atualizar/{id}', 'MetaController@update');
 Route::get('/meta/{id}/diaria', 'MetaController@metas_diarias');
 
 Route::get('/diaria', 'DiariaController@index');
-Route::get('/diaria/criar', 'DiariaController@create');
+Route::get('/diaria/criar', 'DiariaController@create')->name('criarmetadiaria');
 Route::get('/diaria/{id}', 'DiariaController@show');
 Route::post('/diaria/delete/{id}', 'DiariaController@destroy');
 Route::post('/diaria/atualizar/{id}', 'DiariaController@update');
 
 Route::get('/semanal', 'SemanalController@index');
-Route::get('/semanal/criar', 'SemanalController@create');
+Route::get('/semanal/criar', 'SemanalController@create')->name('criarmetasemanal');
 Route::get('/semanal/{id}', 'SemanalController@show');
 Route::post('/semanal/delete/{id}', 'SemanalController@destroy');
 Route::post('/semanal/atualizar/{id}', 'SemanalController@update');
 
 Route::get('/mensal', 'MensalController@index');
-Route::get('/mensal/criar', 'MensalController@create');
+Route::get('/mensal/criar', 'MensalController@create')->name('criarmetamensal');
 Route::get('/mensal/{id}', 'MensalController@show');
 Route::post('/mensal/delete/{id}', 'MensalController@destroy');
 Route::post('/mensal/atualizar/{id}', 'MensalController@update');

@@ -34,6 +34,14 @@ Route::get('/atividades/meta/{id}', function ($id) {
     return view('meta', ["Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
+Route::get('/atividades/meta/diaria/{id}', function ($id) {
+    return view('metadiariasemanal');
+});
+
+Route::get('/atividades/meta/semanal/{id}', function ($id) {
+    return view('metadiariasemanal');
+});
+
 Route::get('/atividade', 'AtividadeController@index');
 Route::get('/atividade/criar', 'AtividadeController@create')->name('criaratividade');
 Route::get('/atividade/{id}', 'AtividadeController@show');

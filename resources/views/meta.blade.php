@@ -71,7 +71,7 @@
 
     <div class="list-group">
         @foreach($Diarias as $Diaria)
-        <a href= "#" class="list-group-item">{{$Diaria["RotinaDefinida"]}}</a>
+        <a href= {{"diaria/".$Diaria["id"]}} class="list-group-item">{{$Diaria["RotinaDefinida"]}}</a>
         @endforeach
     </div>
 
@@ -79,7 +79,7 @@
 
     <div class="list-group">
         @foreach($Semanais as $Semanal)
-        <a href= "#" class="list-group-item">{{$Semanal["RotinaDefinida"]}}</a>
+        <a href= {{"semanal/".$Semanal["id"]}} class="list-group-item">{{$Semanal["RotinaDefinida"]}}</a>
         @endforeach
     </div>
 

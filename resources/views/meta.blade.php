@@ -119,8 +119,8 @@
         <div class="form-group">
             <label for="atividade_id">meta_id:</label>
             <input class="form-control" id="meta_id" name="meta_id" readonly="true" value={{request()->route("id")}}>
-            <label for="RotinaDefinida">Rotina mensal:</label>
-            <input class="form-control" id="RotinaDefinida" name="RotinaDefinida">
+            <label for="RotinaDefinida">Reunioes:</label>
+            <input class="form-control" id="Reunioes" name="Reunioes">
         </div>
 
         <button type="submit" class="btn btn-default">Criar</button>

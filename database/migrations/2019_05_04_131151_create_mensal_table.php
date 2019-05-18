@@ -15,9 +15,9 @@ class CreateMensalTable extends Migration
     {
         Schema::create('mensal', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Relatorios');
-            $table->string('Reunioes');
-            $table->string('Status');
+            $table->string('Relatorios')->default('0');
+            $table->string('Reunioes')->default('0');
+            $table->string('Status')->default('0');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')
                 ->references('id')->on('meta')

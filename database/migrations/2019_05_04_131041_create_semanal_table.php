@@ -16,10 +16,10 @@ class CreateSemanalTable extends Migration
         Schema::create('semanal', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('RotinaDefinida');
-            $table->string('Checagem');
-            $table->string('Backup');
-            $table->string('Manuntencao');
-            $table->string('Status');
+            $table->string('Checagem')->default('0');
+            $table->string('Backup')->default('0');
+            $table->string('Manuntencao')->default('0');
+            $table->string('Status')->default('0');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')
                 ->references('id')->on('meta')

@@ -15,6 +15,7 @@ use App\Http\Controllers\AtividadeController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\DiariaController;
 use App\Http\Controllers\SemanalController;
+use App\Http\Controllers\Incidente;
 
 
 Route::get('/', function () {
@@ -52,13 +53,13 @@ Route::get('/atividades/meta/diaria/{id}', function ($id) {
 Route::get('/atividades/meta/diaria/{id}/manutencao', function ($id) {
     $Diarias = (new DiariaController())->show($id);
     $Manutencoes = $Diarias["Manutencao"];
-    return view('manutencao',["id"=>$id,"Manutencoes"=>json_decode($Manutencoes),"tempo"=>"diaria"]);
+    return view('manutencao',["id"=>$id]);
 });
 
 Route::get('/atividades/meta/semanal/{id}/manutencao', function ($id) {
     $Semanal = (new SemanalController())->show($id);
     $Manutencoes = $Semanal["Manutencao"];
-    return view('manutencao',["id"=>$id,"Manutencoes"=>json_decode($Manutencoes),"tempo"=>"mensal"]);
+    return view('manutencao',["id"=>$id]);
 });
 
 Route::get('/atividades/meta/semanal/{id}', function ($id) {

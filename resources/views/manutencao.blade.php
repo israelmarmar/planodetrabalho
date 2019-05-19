@@ -67,19 +67,6 @@
 
 <script>
 
-function createJSON() {
-
-        item = {};
-        item ["Item"] = document.getElementById("item").value;
-        item ["Status"] = document.getElementById("status").value;
-
-
-        json=JSON.parse(document.getElementById("json").value);
-        json.push(item)
-
-        document.getElementById("Manutencao").value=JSON.stringify(json);
-        console.log(json);
-}
 </script>
 
 
@@ -95,23 +82,13 @@ function createJSON() {
        
     </div>
 
-    @foreach($Manutencoes as $Manutencao)
-        <input type="text" name="item" readonly="true" value="{{$Manutencao->Item}}">
-        <input type="text" name="item" readonly="true" value="{{$Manutencao->Status}}"><br>
-    @endforeach
-
-    <input type="text" id="item" name="item" placeholder="Novo item" onchange="createJSON()">
-    <input type="text" id="status" name="status" placeholder="A fazer" onchange="createJSON()"><br>
+    <input type="text" id="item" name="item" placeholder="Novo item">
+    <input type="text" id="status" name="status" placeholder="A fazer"><br>
+    <input type="text" id="item" name="item" placeholder="Novo item">
+    <input type="text" id="status" name="status" placeholder="A fazer"><br>
 
 
-    <form action={{$tempo."atualizar/".$id.""}} method="post">
-
-        <input type="hidden" id="Manutencao" name="Manutencao">
-        <button type="submit" class="btn btn-default">Criar</button>
- 
-    </form>
-
-    <input id="json" type="hidden" readonly="true" value="{{json_encode($Manutencoes)}}">
+    <button type="submit" class="btn btn-default">Criar</button>
 
 </body>
 

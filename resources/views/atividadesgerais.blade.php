@@ -179,9 +179,9 @@
 
                 <h1 class="card-title">Gerar Relatorio</h1>
 
-                <button class="btn btn-default">Semanal</button>
+                <a href={{request()->route("id")."/relatoriosemanal"}}><button class="btn btn-default">Semanal</button></a>
 
-                <button class="btn btn-default">Mensal</button>
+                <a href={{request()->route("id")."/relatoriomensal"}}><button class="btn btn-default">Mensal</button></a>
 
         </div>
 

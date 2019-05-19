@@ -2,14 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <!-- Styles -->
     <style>
         html,
         body {
@@ -65,56 +66,29 @@
     </style>
 
 <script>
-function backup() {
-  var txt;
-  if (confirm("Deseja fazer o backup das tarefas adicionadas recentemente?")) {
-    txt = "Backup realizado";
-  } else {
-    txt = "Backup cancelado";
-  }
-}
+
 </script>
-   
+
+
 </head>
 
 <body>
-
+    
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">Plano de trabalho</a>
 </nav>
-
-    <div class="card">
-
-        <div class="card-body">
-
-            <h5 class="card-title">Rotina definida: </h5>
-            <p class="card-text">{{$Meta["RotinaDefinida"]}}</p>
-
-        </div>
+    
+    <div class="list-group">
+       
     </div>
 
-
-    <div class="card-deck">
-
-
-        <div class="card">
-
-            <div class="card-body">
-
-                <button class="btn btn-default">Rotina</button>
-
-                <button onclick="backup()" class="btn btn-default">Backups</button>
-
-                <a href={{"/atividades/meta/diaria/".$Meta["id"]."/manutencao"}} class="btn btn-default">Manutenções(check)</a>
-
-                <button class="btn btn-default">Progresso geral</button>
-
-        </div>
+    <label>Mes</label>
+    <input type="text" id="item" name="Mes" placeholder="Mês">
+    <label>Ano</label>
+    <input type="text" id="status" name="Ate" placeholder="Ano"><br>
 
 
-
-    </div>
-
+    <button type="submit" class="btn btn-default">Gerar relatório</button>
 
 </body>
 

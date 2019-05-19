@@ -62,9 +62,14 @@ Route::get('/atividades/meta/semanal/{id}/manutencao', function ($id) {
     return view('manutencao',["id"=>$id]);
 });
 
-Route::get('/atividades/meta/semanal/{id}', function ($id) {
+
+Route::get('/atividades/{id}/relatoriosemanal', function ($id) {
+    return view('relatoriosemanal');
+});
+
+Route::get('/atividades/{id}/relatoriomensal', function ($id) {
     $Semanais = (new SemanalController())->show($id);
-    return view('metadiariasemanal',["Meta"=>json_decode($Semanais,true)]);
+    return view('relatoriomensal');
 });
 
 Route::get('/atividade', 'AtividadeController@index');

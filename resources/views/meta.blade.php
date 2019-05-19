@@ -130,7 +130,7 @@
 
     <div class="list-group">
         @foreach($Mensais as $Mensal)
-        <a href= "#" class="list-group-item">{{$Mensal["RotinaDefinida"]}}</a>
+        <a href= "#" class="list-group-item">{{$Mensal["Reunioes"]}}</a>
         @endforeach
 
         <form action="{{ route('criarmetamensal') }}">

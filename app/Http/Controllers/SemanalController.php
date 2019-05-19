@@ -82,8 +82,8 @@ class SemanalController extends Controller
         if($request->has('Backup'))
         $semanal->Backup = $request->Backup;
 
-        if($request->has('Manuntencao'))
-        $semanal->Manuntencao = $request->Manuntencao;
+        if($request->has('Manutencao'))
+        $semanal->Manutencao = $request->Manutencao;
 
         if($request->has('Status'))
         $semanal->Status = $request->Status;

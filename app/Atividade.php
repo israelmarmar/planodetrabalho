@@ -17,4 +17,8 @@ class Atividade extends Model
     public function relatorio(){
         return $this->hasMany(Relatorio::class);
     }
+
+    public function incidente(){
+        return $this->hasMany(Incidente::class);
+    }
 }

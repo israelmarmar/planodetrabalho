@@ -66,9 +66,22 @@
    
 </head>
 
-<div class="container">
-
 <body>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Plano de trabalho</a>
+</nav>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <h5 class="card-title">Rotina definida: </h5>
+            <p class="card-text">{{$Meta["RotinaDefinida"]}}</p>
+
+        </div>
+    </div>
+
 
     <div class="card-deck">
 
@@ -81,7 +94,7 @@
 
                 <button class="btn btn-default">Backups</button>
 
-                <button class="btn btn-default">Matutenções(check)</button>
+                <a href={{"/atividades/meta/diaria/".$Meta["id"]."/manutencao"}} class="btn btn-default">Manutenções(check)</a>
 
                 <button class="btn btn-default">Progresso geral</button>
 
@@ -93,7 +106,5 @@
 
 
 </body>
-
-</div>
 
 </html>

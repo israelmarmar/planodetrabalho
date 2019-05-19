@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -64,6 +65,23 @@
         }
     </style>
 
+<script>
+
+function createJSON() {
+
+        item = {};
+        item ["Item"] = document.getElementById("item").value;
+        item ["Status"] = document.getElementById("status").value;
+
+
+        json=JSON.parse(document.getElementById("json").value);
+        json.push(item)
+
+        document.getElementById("Manutencao").value=JSON.stringify(json);
+        console.log(json);
+}
+</script>
+
 
 </head>
 
@@ -74,21 +92,26 @@
 </nav>
     
     <div class="list-group">
-        @foreach($Atividades as $Atividade)
-        <a href= {{"/atividades/".$Atividade["id"]}} class="list-group-item">{{$Atividade["NomeProcesso"]}}</a>
-        @endforeach
+       
     </div>
 
-    <form action="{{ route('criaratividade') }}">
-        <div class="form-group">
-            <label for="NomeProcesso">Nova atividade:</label>
-            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
-        </div>
+    @foreach($Manutencoes as $Manutencao)
+        <input type="text" name="item" readonly="true" value="{{$Manutencao->Item}}">
+        <input type="text" name="item" readonly="true" value="{{$Manutencao->Status}}"><br>
+    @endforeach
 
+    <input type="text" id="item" name="item" placeholder="Novo item" onchange="createJSON()">
+    <input type="text" id="status" name="status" placeholder="A fazer" onchange="createJSON()"><br>
+
+
+    <form action={{$tempo."atualizar/".$id.""}} method="post">
+
+        <input type="hidden" id="Manutencao" name="Manutencao">
         <button type="submit" class="btn btn-default">Criar</button>
-
+ 
     </form>
 
+    <input id="json" type="hidden" readonly="true" value="{{json_encode($Manutencoes)}}">
 
 </body>
 

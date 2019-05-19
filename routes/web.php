@@ -13,6 +13,8 @@
 
 use App\Http\Controllers\AtividadeController;
 use App\Http\Controllers\MetaController;
+use App\Http\Controllers\DiariaController;
+use App\Http\Controllers\SemanalController;
 
 
 Route::get('/', function () {
@@ -22,24 +24,46 @@ Route::get('/', function () {
 });
 
 Route::get('/atividades/{id}', function ($id) {
+    $Atividades = (new AtividadeController())->show($id);
     $Metas = (new AtividadeController())->mostrar_metas($id);
-    return view('atividadesgerais')->with('Metas', json_decode($Metas,true));
+    return view('atividadesgerais',['Atividades'=>json_decode($Atividades,true),'Metas'=>json_decode($Metas,true)]);
+
+});
+
+Route::get('/atividades/{id}/incidente', function ($id) {
+    $Metas = (new AtividadeController())->mostrar_incidentes($id);
+    return view('incidente',['Incidentes'=>json_decode($Metas,true)]);
 
 });
 
 Route::get('/atividades/meta/{id}', function ($id) {
+    $Metas = (new MetaController())->show($id);
     $Diarias = (new MetaController())->metas_diarias($id);
     $Semanais = (new MetaController())->metas_semanais($id);
     $Mensais = (new MetaController())->metas_mensais($id);
-    return view('meta', ["Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
+    return view('meta', ["Metas"=>json_decode($Metas,true),"Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
 Route::get('/atividades/meta/diaria/{id}', function ($id) {
-    return view('metadiariasemanal');
+    $Diarias = (new DiariaController())->show($id);
+    return view('metadiariasemanal',["Meta"=>json_decode($Diarias,true)]);
+});
+
+Route::get('/atividades/meta/diaria/{id}/manutencao', function ($id) {
+    $Diarias = (new DiariaController())->show($id);
+    $Manutencoes = $Diarias["Manutencao"];
+    return view('manutencao',["id"=>$id,"Manutencoes"=>json_decode($Manutencoes),"tempo"=>"diaria"]);
+});
+
+Route::get('/atividades/meta/semanal/{id}/manutencao', function ($id) {
+    $Semanal = (new SemanalController())->show($id);
+    $Manutencoes = $Semanal["Manutencao"];
+    return view('manutencao',["id"=>$id,"Manutencoes"=>json_decode($Manutencoes),"tempo"=>"mensal"]);
 });
 
 Route::get('/atividades/meta/semanal/{id}', function ($id) {
-    return view('metadiariasemanal');
+    $Semanais = (new SemanalController())->show($id);
+    return view('metadiariasemanal',["Meta"=>json_decode($Semanais,true)]);
 });
 
 Route::get('/atividade', 'AtividadeController@index');
@@ -56,6 +80,8 @@ Route::get('/meta/{id}', 'MetaController@show');
 Route::post('/meta/delete/{id}', 'MetaController@destroy');
 Route::get('/meta/atualizar/{id}', 'MetaController@update');
 Route::get('/meta/{id}/diaria', 'MetaController@metas_diarias');
+
+
 
 Route::get('/diaria', 'DiariaController@index');
 Route::get('/diaria/criar', 'DiariaController@create')->name('criarmetadiaria');
@@ -80,3 +106,7 @@ Route::get('/relatorio/criar', 'RelatorioController@create');
 Route::get('/relatorio/{id}', 'RelatorioController@show');
 Route::post('/relatorio/delete/{id}', 'RelatorioController@destroy');
 Route::post('/relatorio/atualizar/{id}', 'RelatorioController@update');
+
+
+Route::get('/incidente', 'IncidenteController@index');
+Route::get('/incidente/criar', 'IncidenteController@create')->name('criarincidente');

@@ -82,8 +82,8 @@ class DiariaController extends Controller
         if($request->has('Backup'))
         $diaria->Backup = $request->Backup;
 
-        if($request->has('Manuntencao'))
-        $diaria->Manuntencao = $request->Manuntencao;
+        if($request->has('Manutencao'))
+        $diaria->Manutencao = $request->Manutencao;
 
         if($request->has('Status'))
         $diaria->Status = $request->Status;

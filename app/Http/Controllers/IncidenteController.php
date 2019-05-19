@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Incidente;
+
 class IncidenteController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class IncidenteController extends Controller
      */
     public function index()
     {
-        //
+        return Incidente::all();
     }
 
     /**
@@ -21,9 +23,10 @@ class IncidenteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Incidente::create($request->all());
+        return $request->all();
     }
 
     /**
@@ -45,7 +48,7 @@ class IncidenteController extends Controller
      */
     public function show($id)
     {
-        //
+        return Incidente::find($id);
     }
 
     /**

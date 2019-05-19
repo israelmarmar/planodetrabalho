@@ -2,14 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Styles -->
     <style>
         html,
         body {
@@ -63,32 +63,47 @@
             margin-bottom: 30px;
         }
     </style>
-
-
+   
 </head>
 
 <body>
-    
+
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">Plano de trabalho</a>
 </nav>
-    
+
+<h1 class="card-title">Incidentes</h1>
+
     <div class="list-group">
-        @foreach($Atividades as $Atividade)
-        <a href= {{"/atividades/".$Atividade["id"]}} class="list-group-item">{{$Atividade["NomeProcesso"]}}</a>
+        @foreach($Incidentes as $Incidente)
+        <a href="#" class="list-group-item">{{$Incidente["Causa"]}}</a>
         @endforeach
     </div>
 
-    <form action="{{ route('criaratividade') }}">
+    <h1 class="card-title">Novo incidente</h1>
+
+    <form action="{{ route('criarincidente') }}">
         <div class="form-group">
-            <label for="NomeProcesso">Nova atividade:</label>
-            <input class="form-control" id="NomeProcesso" name="NomeProcesso">
+
+            <label for="atividade_id">atividade_id:</label>
+            <input class="form-control" id="atividade_id" name="atividade_id" readonly="true" value={{request()->route("id")}}>
+
+            <label for="Data do ocorrido">Data do ocrrido</label>
+            <input class="form-control" id="Tempo" placeholder="DD/MM/AAAA" name="Tempo">
+
+            <label for="Causa">Causa</label>
+            <input class="form-control" id="Causa" placeholder="Descreva a causa" name="Causa">
+
+            <label for="Solucao">Solução</label>
+            <input class="form-control" id="Solucao" placeholder="Descreva a solução" name="Solucao">
+
+            
+            
         </div>
 
-        <button type="submit" class="btn btn-default">Criar</button>
+        <button type="submit" class="btn btn-default">Salvar</button>
 
     </form>
-
 
 </body>
 

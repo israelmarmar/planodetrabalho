@@ -66,9 +66,21 @@
    
 </head>
 
-<div class="container">
-
 <body>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Plano de trabalho</a>
+</nav>
+
+<div class="card">
+
+  <div class="card-body">
+
+    <h5 class="card-title">Nome do Processo: </h5>
+    <p class="card-text">{{$Atividades["NomeProcesso"]}}</p>
+
+  </div>
+</div>
     
 <h1>Metas</h1>
 
@@ -120,11 +132,7 @@
 
             <div class="card-body">
 
-                <h1 class="card-title">Incidentes</h1>
-
-                <button class="btn btn-default">Novo incidente</button>
-
-            <button class="btn btn-default">Ver incidente</button>
+            <a href={{request()->route("id").'/incidente'}}><h1 class="card-title">Incidentes</h1></a>
 
         </div>
 
@@ -183,6 +191,5 @@
 
 </body>
 
-</div>
 
 </html>

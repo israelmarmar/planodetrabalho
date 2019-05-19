@@ -18,7 +18,7 @@ class CreateDiariaTable extends Migration
             $table->string('RotinaDefinida');
             $table->string('Checagem')->default('0');
             $table->string('Backup')->default('0');
-            $table->string('Manuntencao')->default('0');
+            $table->string('Manutencao')->default('[{"Item":"","Status":"A fazer"}]');
             $table->string('Status')->default('0');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')

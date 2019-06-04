@@ -54,7 +54,7 @@ Route::get('/metas/{id}', function ($id) {
     return view('meta', ["Metas"=>json_decode($Metas,true),"Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
-Route::get('/atividades/meta/diaria/{id}', function ($id) {
+Route::get('/metas/diaria/{id}', function ($id) {
     $Diarias = (new DiariaController())->show($id);
     return view('metadiariasemanal',["Meta"=>json_decode($Diarias,true)]);
 });

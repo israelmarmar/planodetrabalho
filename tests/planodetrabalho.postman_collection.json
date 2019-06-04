@@ -353,7 +353,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"RotinaDefinida\":\"ggg\",\n\t\"Checagem\":\"fsddf\",\n\t\"Backup\":\"fgdfg\",\n\t\"Manuntencao\":\"fdgd\",\n\t\"Status\":\"dfdfd\",\n\t\"meta_id\":1\n}"
+					"raw": "{\n\t\"RotinaDefinida\":\"ggg\",\n\t\"Checagem\":\"fsddf\",\n\t\"Backup\":\"fgdfg\",\n\t\"Manutencao\":\"fdgd\",\n\t\"Status\":\"dfdfd\",\n\t\"meta_id\":1\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8000/diaria/criar",

@@ -17,9 +17,9 @@ class CreateMetaTable extends Migration
             $table->bigIncrements('id');
             $table->string('Atividade');
             $table->string('Responsavel');
-            $table->unsignedBigInteger('atividade_id');
-            $table->foreign('atividade_id')
-                ->references('id')->on('atividade')
+            $table->unsignedBigInteger('planodetrabalho_id');
+            $table->foreign('planodetrabalho_id')
+                ->references('id')->on('planodetrabalho')
                 ->onDelete('cascade');
 
             $table->timestamps();

@@ -8,7 +8,11 @@ class Atividade extends Model
 {
     protected $table = 'atividade';
 
-    protected $fillable = ['NomeProcesso'];
+    protected $fillable = ['NomeProcesso','planodetrabalho_id'];
+
+    public function plandetrabalho(){
+        return $this->belongsTo(Planodetrabalho::class);
+    }
 
     public function meta(){
         return $this->hasMany(Meta::class);

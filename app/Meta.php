@@ -8,10 +8,10 @@ class Meta extends Model
 {
     protected $table = 'meta';
 
-    protected $fillable = ['Atividade', 'Responsavel', 'atividade_id'];
+    protected $fillable = ['Atividade', 'Responsavel', 'planodetrabalho_id'];
 
-    public function atividade(){
-        return $this->belongsTo(Atividade::class);
+    public function plandetrabalho(){
+        return $this->belongsTo(Planodetrabalho::class);
     }
 
     public function diaria(){

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "30f8f7ba-3126-4a72-b417-16ca2886f105",
+		"_postman_id": "b4a9fefb-1834-45eb-b3cc-10ab23f47261",
 		"name": "plano de trabalho",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -22,7 +22,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=atividade desnecessaria",
+					"raw": "http://localhost:8000/atividade/criar?NomeProcesso=atividade desnecessaria&planodetrabalho_id=8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -36,6 +36,10 @@
 						{
 							"key": "NomeProcesso",
 							"value": "atividade desnecessaria"
+						},
+						{
+							"key": "planodetrabalho_id",
+							"value": "8"
 						}
 					]
 				}
@@ -174,7 +178,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/meta/criar?Atividade=analise de rede&Responsavel=77&atividade_id=2",
+					"raw": "http://localhost:8000/meta/criar?Atividade=analise de rede&Responsavel=77&planodetrabalho_id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -194,8 +198,8 @@
 							"value": "77"
 						},
 						{
-							"key": "atividade_id",
-							"value": "2"
+							"key": "planodetrabalho_id",
+							"value": "1"
 						}
 					]
 				}
@@ -386,6 +390,60 @@
 						"meta",
 						"1",
 						"diaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/planodetrabalho/criar?NomePlano=plano desnecessario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/planodetrabalho/criar?NomePlano=plano desnecessario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"planodetrabalho",
+						"criar"
+					],
+					"query": [
+						{
+							"key": "NomePlano",
+							"value": "plano desnecessario"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/planodetrabalho/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/planodetrabalho/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"planodetrabalho",
+						""
 					]
 				}
 			},

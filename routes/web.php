@@ -15,19 +15,28 @@ use App\Http\Controllers\AtividadeController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\DiariaController;
 use App\Http\Controllers\SemanalController;
-use App\Http\Controllers\Incidente;
+use App\Http\Controllers\IncidenteController;
+use App\Http\Controllers\PlanodetrabalhoController;
 
 
 Route::get('/', function () {
-    $Atividades = (new AtividadeController())->index();
-    return view('atividades')->with('Atividades', json_decode($Atividades,true));
+    $Planodetrabalho = (new PlanodetrabalhoController())->index();
+    return view('index',['Planodetrabalho'=>json_decode($Planodetrabalho,true)]);
 
 });
 
+
+Route::get('/plano/{id}', function ($id) {
+    $Plano = (new PlanodetrabalhoController())->show($id);
+    $Atividades = (new PlanodetrabalhoController())->mostrar_atividades($id);
+    $Metas = (new PlanodetrabalhoController())->mostrar_metas($id);
+    return view('plano',['Plano'=>json_decode($Plano,true),'Atividades'=>json_decode($Atividades,true),'Metas'=>json_decode($Metas,true)]);
+});
+
+
 Route::get('/atividades/{id}', function ($id) {
-    $Atividades = (new AtividadeController())->show($id);
-    $Metas = (new AtividadeController())->mostrar_metas($id);
-    return view('atividadesgerais',['Atividades'=>json_decode($Atividades,true),'Metas'=>json_decode($Metas,true)]);
+    $Atividade = (new AtividadeController())->show($id);
+    return view('atividadesgerais',['Atividade'=>json_decode($Atividade,true)]);
 
 });
 
@@ -37,7 +46,7 @@ Route::get('/atividades/{id}/incidente', function ($id) {
 
 });
 
-Route::get('/atividades/meta/{id}', function ($id) {
+Route::get('/metas/{id}', function ($id) {
     $Metas = (new MetaController())->show($id);
     $Diarias = (new MetaController())->metas_diarias($id);
     $Semanais = (new MetaController())->metas_semanais($id);
@@ -71,6 +80,15 @@ Route::get('/atividades/{id}/relatoriomensal', function ($id) {
     $Semanais = (new SemanalController())->show($id);
     return view('relatoriomensal');
 });
+
+
+Route::get('/planodetrabalho', 'PlanodetrabalhoController@index');
+Route::get('/planodetrabalho/criar', 'PlanodetrabalhoController@create')->name('criarplano');
+Route::get('/planodetrabalho/{id}', 'PlanodetrabalhoController@show');
+Route::get('/planodetrabalho/{id}/mostrarmetas', 'PlanodetrabalhoController@mostrar_metas');
+Route::post('/planodetrabalho/delete/{id}', 'PlanodetrabalhoController@destroy');
+Route::get('/planodetrabalho/atualizar/{id}', 'PlanodetrabalhoController@update');
+
 
 Route::get('/atividade', 'AtividadeController@index');
 Route::get('/atividade/criar', 'AtividadeController@create')->name('criaratividade');

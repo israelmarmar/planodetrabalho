@@ -53,11 +53,6 @@ class AtividadeController extends Controller
         return Atividade::find($id);
     }
 
-    public function mostrar_metas($id)
-    {
-        return Atividade::find($id)->meta;
-    }
-
     public function mostrar_incidentes($id)
     {
         return Atividade::find($id)->incidente;

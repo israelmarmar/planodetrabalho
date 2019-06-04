@@ -16,6 +16,10 @@ class CreateAtividadeTable extends Migration
         Schema::create('atividade', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('NomeProcesso');
+            $table->unsignedBigInteger('planodetrabalho_id');
+            $table->foreign('planodetrabalho_id')
+                ->references('id')->on('planodetrabalho')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

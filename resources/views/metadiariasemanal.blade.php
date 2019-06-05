@@ -1,121 +1,73 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <style>
-        html,
-        body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links>a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-
-<script>
-function backup() {
-  var txt;
-  if (confirm("Deseja fazer o backup das tarefas adicionadas recentemente?")) {
-    txt = "Backup realizado";
-  } else {
-    txt = "Backup cancelado";
-  }
-}
-</script>
-   
-</head>
-
-<body>
-
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Plano de trabalho</a>
-</nav>
-
-    <div class="card">
-
-        <div class="card-body">
-
-            <h5 class="card-title">Rotina definida: </h5>
-            <p class="card-text">{{$Meta["RotinaDefinida"]}}</p>
-
-        </div>
-    </div>
+<!DOCTYPE HTML>
 
 
-    <div class="card-deck">
+<html>
+	<head>
+		<title>Metas-diarias</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Metas Diárias</strong></a>
+					<button class="voltar">Voltar</button>
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					
+
+					<div class="metas">
+
+						<div class="row">
+						    <div class="col1">
+						    	<div>
+								<span class=""></span>
+								<h3>Progresso Geral</h3>
+								<button class="button">Clique</button>
+								<p></p> <br>
+								</div>  
+						    
+							    <div>
+								<span class=""></span>
+								<h3>Backups</h3>
+								<button class="button">Clique</button>
+								</div>
+							</div>	
+						    
+						    <div class="col2">
+						    	<div>
+								<span class=""></span>
+								<h3>Manutenção</h3>
+								<button class="button">Clique</button>
+								<p></p> <br>
+								</div>
+
+							    <div>
+								<span class=""></span>
+								<h3>Rotinas</h3>
+								<button class="button">Clique</button>
+								<p></p>
+								</div>
+						    </div>
+
+						    </div>
+
+						<div>
+							
+				</div>
+
+			</div>
+			</section>
 
 
-        <div class="card">
-
-            <div class="card-body">
-
-                <button class="btn btn-default">Rotina</button>
-
-                <button onclick="backup()" class="btn btn-default">Backups</button>
-
-                <a href={{"/atividades/meta/diaria/".$Meta["id"]."/manutencao"}} class="btn btn-default">Manutenções(check)</a>
-
-                <button class="btn btn-default">Progresso geral</button>
-
-        </div>
-
-
-
-    </div>
-
-
-</body>
-
+		<!-- Three -->
+			
+	</body>
 </html>

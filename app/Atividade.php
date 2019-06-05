@@ -10,7 +10,7 @@ class Atividade extends Model
 
     protected $fillable = ['NomeProcesso','planodetrabalho_id'];
 
-    public function plandetrabalho(){
+    public function planodetrabalho(){
         return $this->belongsTo(Planodetrabalho::class);
     }
 

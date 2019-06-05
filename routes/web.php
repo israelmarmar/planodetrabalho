@@ -36,7 +36,7 @@ Route::get('/plano/{id}', function ($id) {
 
 Route::get('/atividades/{id}', function ($id) {
     $Atividade = (new AtividadeController())->show($id);
-    return view('atividadesgerais',['Atividade'=>json_decode($Atividade,true)]);
+    return view('atividadesgerais',['Atividade'=>json_decode($Atividade,true),"id"=>$id]);
 
 });
 
@@ -78,7 +78,7 @@ Route::get('/atividades/{id}/relatoriosemanal', function ($id) {
 
 Route::get('/atividades/{id}/relatoriomensal', function ($id) {
     $Semanais = (new SemanalController())->show($id);
-    return view('relatoriomensal');
+    return view('relatorio',["id"=>$id]);
 });
 
 
@@ -134,3 +134,6 @@ Route::post('/relatorio/atualizar/{id}', 'RelatorioController@update');
 
 Route::get('/incidente', 'IncidenteController@index');
 Route::get('/incidente/criar', 'IncidenteController@create')->name('criarincidente');
+
+
+Route::get('generate-pdf','GerapdfController@generatePDF');

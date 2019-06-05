@@ -58,6 +58,11 @@ class AtividadeController extends Controller
         return Atividade::find($id)->incidente;
     }
 
+    public function mostrar_planodetrabalho($id)
+    {
+        return Atividade::find($id)->planodetrabalho;
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

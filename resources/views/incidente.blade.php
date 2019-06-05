@@ -1,110 +1,111 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE HTML>
 
-<head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<html>
+	<head>
+		<title>Incidentes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}" />
+	</head>
+	<body>
 
-    <style>
-        html,
-        body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="Ativ-incidentes.html" class="logo">
+						<strong>Incidentes</strong></a>
+						<button class="voltar">Voltar</button>
+				</div>
+			</header>
 
-        .full-height {
-            height: 100vh;
-        }
+		<!-- Banner -->
+		<section id="banner">
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+			<div class="inner">
+				<footer id="footer">	
+					<div class="container">
+						 <div class="row">
 
-        .position-ref {
-            position: relative;
-        }
+						    <div class="col-sm-1">
+						    	<div>
+								<h3>Registrar Novo Incidente</h3>
+								
+							<form action="{{ route('criarincidente') }}">
+								<fieldset>
+		        					<div class="N-processo">
+									<label for="id-inc">Nº/ID do Incidente</label>
+									<input name="id-inc" id="id-inc" type="text" placeholder="Nº do Incidente">
+								</div>
+								<div class="field half first">
+									<label for="Data">Data do ocorrido</label>
+									<input name="Data" id="Data" type="text" placeholder="Data do ocorrido">
+								</div>
+								<div class="field half first">
+									<label for="local">Local</label>
+									<input name="local" id="local" type="text" placeholder="Local do ocorrido">
+								</div>
+								<div class="field half first">
+									<label for="Causa">Causa do Incidente</label>
+									<input name="Causa" id="Causa" type="text" placeholder="Descrição da Causa">
+								</div>
+								<div class="field half first">
+									<label for="Tempo">Tempo de Inatividade</label>
+									<input name="Tempo" id="Tempo" type="text" placeholder="Tempo em horas ou dias">
+								</div>
+								<div class="Clientes">
+		                			<label for="Clientes">Clientes afetados</label>
+		                			<select name="Clientes" id="Clientes">
+		                    		<option value="">--</option>
+		                    		<option value="IFAM">IFAM</option>
+		                    		<option value="UEA">UEA</option>
+		                    		<option value="INPA">INPA</option>
+		                			</select>
+		            			</div>
+								<div class="field half first">
+									<label for="Resp">Incidente reportado por:</label>
+									<input name="Resp" id="Resp" type="text" placeholder="Nome">
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input name="email" id="email" type="email" placeholder="E-mail">
+								</div>
+								<div class="field">
+									<label for="solucao">Solução</label>
+									<textarea name="solucao" id="solucao" rows="6" placeholder="Solução"></textarea>
+									<br>
+								</div>
+								<button class="button">Salvar</button>
+		    					</fieldset>
+		    					<br>
+							</form>
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
+						    </div>
+							    
+						</div>	
+						    
+						    <div class="col-sm-2">
+						    	<div>
+								<span class=""></span>
+								<h3>Acompanhar Incidentes</h3>
+								<button class="button">Clique</button>
+								<p></p>
+								</div>
 
-        .content {
-            text-align: center;
-        }
+						    </div>
+						          
 
-        .title {
-            font-size: 84px;
-        }
+						</d iv>
+						  
 
-        .links>a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+					</div>
 
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-   
-</head>
+						
+				</footer>
+			</section>
 
-<body>
 
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Plano de trabalho</a>
-</nav>
-
-<h1 class="card-title">Incidentes</h1>
-
-    <div class="list-group">
-        @foreach($Incidentes as $Incidente)
-        <a href="#" class="list-group-item">{{$Incidente["Causa"]}}</a>
-        @endforeach
-    </div>
-
-    <h1 class="card-title">Novo incidente</h1>
-
-    <form action="{{ route('criarincidente') }}">
-        <div class="form-group">
-
-            <label for="atividade_id">atividade_id:</label>
-            <input class="form-control" id="atividade_id" name="atividade_id" readonly="true" value={{request()->route("id")}}>
-
-            <label for="Data do ocorrido">Data do ocrrido</label>
-            <input class="form-control" id="Tempo" placeholder="DD/MM/AAAA" name="Tempo">
-
-            <label for="Causa">Causa</label>
-            <input class="form-control" id="Causa" placeholder="Descreva a causa" name="Causa">
-
-            <label for="Solucao">Solução</label>
-            <input class="form-control" id="Solucao" placeholder="Descreva a solução" name="Solucao">
-
-            
-            
-        </div>
-
-        <button type="submit" class="btn btn-default">Salvar</button>
-
-    </form>
-
-</body>
-
+		<!-- Three -->
+			
+	</body>
 </html>

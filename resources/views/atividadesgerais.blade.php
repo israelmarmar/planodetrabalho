@@ -50,7 +50,7 @@
 						    	<div>
 								<span class=""></span>
 								<h3>Incidentes</h3>
-								<button class="button">Clique</button>
+								<a href={{$id."/incidente"}} class="button">Clique</a>
 								<p></p>
 								<br>
 								</div>
@@ -76,7 +76,7 @@
 								<div>
 								<span class=""></span>
 								<h3>Gerar Relatório</h3>
-							<button class="button">Clique</button>
+							<a href={{$id . "/relatoriomensal"}} class="button">Clique</a>
 							<p></p>
 							</div>
 							</div>      

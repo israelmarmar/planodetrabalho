@@ -101,4 +101,9 @@ class PlanodetrabalhoController extends Controller
     public function mostrar_metas($id){
         return Planodetrabalho::find($id)->meta;
     }
+
+    public function mostrar_metas_por_data(Request $request, $id){
+
+        return Planodetrabalho::find($id)->whereBetween('timestamp', [$request-datai, $request-dataf])->get();
+    }
 }

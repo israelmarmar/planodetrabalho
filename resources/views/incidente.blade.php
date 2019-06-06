@@ -7,6 +7,26 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+		<script>
+			$(document).ready( function () {
+				$('form').submit( function () {
+				var formdata = $(this).serialize();
+				$.ajax({
+			    type: "GET",
+			    url: "{{ route('criarincidente') }}",
+			    data: formdata,
+				success:function(data){
+					alert("Incidente registrado");
+					location.reload();
+        			}
+				 });
+				 return false;
+				});
+			});
+		</script>
+
 	</head>
 	<body>
 
@@ -31,12 +51,14 @@
 						    	<div>
 								<h3>Registrar Novo Incidente</h3>
 								
-							<form action="{{ route('criarincidente') }}">
-								<fieldset>
-		        					<div class="N-processo">
-									<label for="id-inc">Nº/ID do Incidente</label>
-									<input name="id-inc" id="id-inc" type="text" placeholder="Nº do Incidente">
-								</div>
+							<form name="formulario">
+								
+
+								<input type="hidden" name="Status" value="0">
+								<input type="hidden" name="Implantacao_solucao" value="0">
+								<input type="hidden" name="atividade_id" id="id" value={{$id}}>
+									
+		        					
 								<div class="field half first">
 									<label for="Data">Data do ocorrido</label>
 									<input name="Data" id="Data" type="text" placeholder="Data do ocorrido">
@@ -72,11 +94,11 @@
 								</div>
 								<div class="field">
 									<label for="solucao">Solução</label>
-									<textarea name="solucao" id="solucao" rows="6" placeholder="Solução"></textarea>
+									<textarea name="Solucao" id="solucao" rows="6" placeholder="Solução"></textarea>
 									<br>
 								</div>
-								<button class="button">Salvar</button>
-		    					</fieldset>
+								<input type="submit" class="button" value="Salva" />
+		    					
 		    					<br>
 							</form>
 
@@ -88,7 +110,11 @@
 						    	<div>
 								<span class=""></span>
 								<h3>Acompanhar Incidentes</h3>
-								<button class="button">Clique</button>
+
+								@foreach($Incidentes as $Incidente)
+        							<a href="#" class="button">{{$Incidente["Causa"]}}</a>
+								@endforeach
+						
 								<p></p>
 								</div>
 

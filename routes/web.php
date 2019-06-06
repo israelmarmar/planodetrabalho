@@ -41,8 +41,8 @@ Route::get('/atividades/{id}', function ($id) {
 });
 
 Route::get('/atividades/{id}/incidente', function ($id) {
-    $Metas = (new AtividadeController())->mostrar_incidentes($id);
-    return view('incidente',['Incidentes'=>json_decode($Metas,true)]);
+    $Incidentes = (new AtividadeController())->mostrar_incidentes($id);
+    return view('incidente',['Incidentes'=>json_decode($Incidentes,true),"id"=>$id]);
 
 });
 

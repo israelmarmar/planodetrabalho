@@ -8,12 +8,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/modal.css')}}}" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -155,6 +150,11 @@
 	</div>
 
 	<!-- Three -->
+
+	<script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/skel.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/util.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/main.js')}}"></script>
 
 	<script>
 		// Get the modal

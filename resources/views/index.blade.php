@@ -121,6 +121,11 @@
 
 	<!-- Footer -->
 	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
 	<script>
 		// Get the modal
 		var modal = document.getElementById('myModal');
@@ -166,11 +171,7 @@
 			});
 
 	</script>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+	
 </body>
 
 </html>

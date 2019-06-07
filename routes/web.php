@@ -30,7 +30,7 @@ Route::get('/plano/{id}', function ($id) {
     $Plano = (new PlanodetrabalhoController())->show($id);
     $Atividades = (new PlanodetrabalhoController())->mostrar_atividades($id);
     $Metas = (new PlanodetrabalhoController())->mostrar_metas($id);
-    return view('plano',['Plano'=>json_decode($Plano,true),'Atividades'=>json_decode($Atividades,true),'Metas'=>json_decode($Metas,true)]);
+    return view('plano',["id"=>$id,'Plano'=>json_decode($Plano,true),'Atividades'=>json_decode($Atividades,true),'Metas'=>json_decode($Metas,true)]);
 });
 
 
@@ -51,7 +51,7 @@ Route::get('/metas/{id}', function ($id) {
     $Diarias = (new MetaController())->metas_diarias($id);
     $Semanais = (new MetaController())->metas_semanais($id);
     $Mensais = (new MetaController())->metas_mensais($id);
-    return view('meta', ["Metas"=>json_decode($Metas,true),"Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
+    return view('meta', ["id"=>$id,"Metas"=>json_decode($Metas,true),"Diarias"=>json_decode($Diarias,true),"Semanais"=>json_decode($Semanais,true),"Mensais"=>json_decode($Mensais,true)]);
 });
 
 Route::get('/metas/diaria/{id}', function ($id) {

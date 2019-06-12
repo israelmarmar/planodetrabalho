@@ -56,12 +56,12 @@ Route::get('/metas/{id}', function ($id) {
 
 Route::get('/metas/diaria/{id}', function ($id) {
     $Diarias = (new DiariaController())->show($id);
-    return view('metadiaria',["tipo"=>"Diárias","Meta"=>json_decode($Diarias,true)]);
+    return view('metadiaria',["type"=>"diaria","id"=>$id,"tipo"=>"Diárias","Meta"=>json_decode($Diarias,true)]);
 });
 
 Route::get('/metas/semanal/{id}', function ($id) {
     $Semanais = (new SemanalController())->show($id);
-    return view('metadiariasemanal',["tipo"=>"Semanais","Meta"=>json_decode($Semanais,true)]);
+    return view('metadiaria',["type"=>"semanal","tipo"=>"Semanais","Meta"=>json_decode($Semanais,true)]);
 });
 
 Route::get('/atividades/meta/diaria/{id}/manutencao', function ($id) {

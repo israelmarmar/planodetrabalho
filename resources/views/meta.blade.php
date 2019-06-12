@@ -9,13 +9,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/modal.css')}}}" />
+
+	<style>
+		.close:hover {
+			background-color: #f44336;
+			color: white;
+		}
+	</style>
+
 </head>
 
-		<script>
-			function goBack() {
-  				window.history.back();
-			}
-		</script>
+<script>
+	function goBack() {
+		window.history.back();
+	}
+</script>
 
 
 <body>
@@ -46,10 +54,12 @@
 					<button class="button" id="btnadddiaria">+ Criar meta diária</button>
 					<br>
 					@foreach($Diarias as $Diaria)
-					<a href={{"diaria/".$Diaria["id"]}} class="button">{{$Diaria["RotinaDefinida"]}}</a>
+					<div class="button btnlist" data-tipo="diaria" id={{$Diaria["id"]}}>
+						<a href={{"diaria/".$Diaria["id"]}}>{{$Diaria["RotinaDefinida"]}}</a>
+						<span class="close">×</span>
+					</div>
 					<br>
 					@endforeach
-					
 					<p></p>
 				</div>
 
@@ -60,7 +70,10 @@
 					<button class="button" id="btnaddsemanal">+ Criar meta semanal</button>
 					<br>
 					@foreach($Semanais as $Semanal)
-					<a href={{"semanal/".$Semanal["id"]}} class="button">{{$Semanal["RotinaDefinida"]}}</a>
+					<div class="button btnlist" data-tipo="semanal" id={{$Semanal["id"]}}>
+						<a href={{"semanal/".$Semanal["id"]}}>{{$Semanal["RotinaDefinida"]}}</a>
+						<span class="close">×</span>
+					</div>
 					<br>
 					@endforeach
 					<p></p>
@@ -74,11 +87,14 @@
 					<button class="button" id="btnaddmensal">+ Criar meta mensal</button>
 					<br>
 					@foreach($Mensais as $Mensal)
-					<a href="#" class="button">{{$Mensal["Status"]}}</a>
+					<div class="button btnlist" data-tipo="mensal" id={{$Mensal["id"]}}>
+						<a href="#">{{$Mensal["Status"]}}</a>
+						<span class="close">×</span>
+					</div>
 					<br>
 					@endforeach
-					
-					
+
+
 					<p></p>
 				</div>
 
@@ -107,11 +123,11 @@
 
 					<label for="diaa">De:</label>
 					<input type="date" id="diaa" name="datainicio">
-							
-							
+
+
 					<label for="diaa">Até:</label>
 					<input type="date" id="diaa" name="datafim">
-							
+
 					<input type="hidden" name="observacoes" id="obs" value="&nbsp">
 
 				</div>
@@ -179,6 +195,7 @@
 	<script src="{{ URL::asset('assets/js/main.js')}}"></script>
 
 	<script>
+
 		// Get the modal
 		var diariamodal = document.getElementById('DiariaModal');
 
@@ -270,9 +287,27 @@
 
 
 		$(document).ready(function() {
+
+			$("span.close").click(function() {
+				var div=$(this).parent();
+				var id=div.prop("id");
+				var tipo=div.data("tipo");
+
+				if(confirm("Deseja realmente remover esta meta?")){
+				$.ajax({
+					type: "POST",
+					url: "{{ URL::asset('/') }}"+tipo+"/delete/"+id,
+					success: function(data) {
+						div.slideUp();
+					}
+				});
+				}
+				return false;
+			});
+
 			$('#formdiaria').submit(function() {
 				var formdata = $(this).serialize();
-				$( this ).find("input.button").attr("disabled", true);
+				$(this).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetadiaria') }}",
@@ -287,7 +322,7 @@
 
 			$('#formsemanal').submit(function() {
 				var formdata = $(this).serialize();
-				$( this ).find("input.button").attr("disabled", true);
+				$(this).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetasemanal') }}",
@@ -302,7 +337,7 @@
 
 			$('#formmensal').submit(function() {
 				var formdata = $(this).serialize();
-				$( this ).find("input.button").attr("disabled", true);
+				$(this).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetamensal') }}",
@@ -316,7 +351,6 @@
 			});
 
 		});
-
 	</script>
 
 </body>

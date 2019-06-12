@@ -88,6 +88,15 @@ class DiariaController extends Controller
         if($request->has('Status'))
         $diaria->Status = $request->Status;
 
+        if($request->has('datainicio'))
+        $diaria->datainicio = $request->datainicio;
+
+        if($request->has('datafim'))
+        $diaria->datafim = $request->datafim;
+
+        if($request->has('observacoes'))
+        $diaria->observacoes = $request->observacoes;
+
         if($request->has('meta_id'))
         $diaria->meta_id = $request->meta_id;
 

@@ -91,6 +91,16 @@ class SemanalController extends Controller
         if($request->has('meta_id'))
         $semanal->meta_id = $request->meta_id;
 
+        if($request->has('datainicio'))
+        $diaria->datainicio = $request->datainicio;
+
+        if($request->has('datafim'))
+        $diaria->datafim = $request->datafim;
+
+        if($request->has('observacoes'))
+        $diaria->observacoes = $request->observacoes;
+
+
         $semanal->touch();
 
         $semanal->save();

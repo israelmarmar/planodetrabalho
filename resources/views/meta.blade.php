@@ -11,6 +11,13 @@
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/modal.css')}}}" />
 </head>
 
+		<script>
+			function goBack() {
+  				window.history.back();
+			}
+		</script>
+
+
 <body>
 
 
@@ -19,6 +26,7 @@
 	<header id="header">
 		<div class="inner">
 			<a href="index.html" class="logo"><strong>{{$Metas["Atividade"]}}</strong></a>
+			<button class="voltar" onclick="goBack()">Voltar</button>
 		</div>
 	</header>
 
@@ -35,11 +43,13 @@
 					<span class=""></span>
 					<h3>Metas Diárias</h3>
 					<br>
+					<button class="button" id="btnadddiaria">+ Criar meta diária</button>
+					<br>
 					@foreach($Diarias as $Diaria)
 					<a href={{"diaria/".$Diaria["id"]}} class="button">{{$Diaria["RotinaDefinida"]}}</a>
 					<br>
 					@endforeach
-					<button class="button" id="btnadddiaria">+ Adicionar meta diária</button>
+					
 					<p></p>
 				</div>
 
@@ -47,11 +57,12 @@
 					<span class=""></span>
 					<h3>Metas Semanais</h3>
 					<br>
+					<button class="button" id="btnaddsemanal">+ Criar meta semanal</button>
+					<br>
 					@foreach($Semanais as $Semanal)
 					<a href={{"semanal/".$Semanal["id"]}} class="button">{{$Semanal["RotinaDefinida"]}}</a>
 					<br>
 					@endforeach
-					<button class="button" id="btnaddsemanal">+ Adicionar meta semanal</button>
 					<p></p>
 				</div>
 
@@ -60,11 +71,13 @@
 
 					<h3>Metas Mensais</h3>
 					<br>
+					<button class="button" id="btnaddmensal">+ Criar meta mensal</button>
+					<br>
 					@foreach($Mensais as $Mensal)
 					<a href="#" class="button">{{$Mensal["Status"]}}</a>
 					<br>
 					@endforeach
-					<button class="button" id="btnaddmensal">+ Adicionar meta mensal</button>
+					
 					
 					<p></p>
 				</div>
@@ -91,6 +104,15 @@
 					<label for="RotinaDefinida">Rotina Definida</label>
 					<input name="RotinaDefinida" id="RotinaDefinida" type="text" placeholder="Rotina Definida">
 
+
+					<label for="diaa">De:</label>
+					<input type="date" id="diaa" name="datainicio">
+							
+							
+					<label for="diaa">Até:</label>
+					<input type="date" id="diaa" name="datafim">
+							
+					<input type="hidden" name="observacoes" id="obs" value="&nbsp">
 
 				</div>
 
@@ -250,6 +272,7 @@
 		$(document).ready(function() {
 			$('#formdiaria').submit(function() {
 				var formdata = $(this).serialize();
+				$( this ).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetadiaria') }}",
@@ -264,6 +287,7 @@
 
 			$('#formsemanal').submit(function() {
 				var formdata = $(this).serialize();
+				$( this ).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetasemanal') }}",
@@ -278,6 +302,7 @@
 
 			$('#formmensal').submit(function() {
 				var formdata = $(this).serialize();
+				$( this ).find("input.button").attr("disabled", true);
 				$.ajax({
 					type: "GET",
 					url: "{{ route('criarmetamensal') }}",

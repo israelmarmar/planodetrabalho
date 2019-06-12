@@ -7,7 +7,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
+
+		<script>
+			function goBack() {
+  				window.history.back();
+			}
+		</script>
+
 	</head>
+
 	<body>
 
 		<!-- Header -->
@@ -15,7 +23,7 @@
 				<div class="inner">
 					<a href="Atividades.html" class="logo">
 						<strong>{{$Atividade["NomeProcesso"]}}</strong></a>
-						<button class="voltar">Voltar</button>
+						<button class="voltar" onclick="goBack()">Voltar</button>
 				</div>
 			</header>
 
@@ -33,7 +41,7 @@
 						    	<div>
 								<span class="L1"></span>
 								<h3>Configurações</h3>
-								<button class="button">Clique</button>
+								<a href={{$id."/configuracoes"}} class="button">Clique</a>
 								<p></p>
 								<br>
 								</div>  

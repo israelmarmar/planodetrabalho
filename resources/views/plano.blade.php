@@ -15,6 +15,12 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 
 
+	<script>
+		function goBack() {
+  			window.history.back();
+		}
+		</script>
+
 </head>
 
 <body>
@@ -23,6 +29,7 @@
 	<header id="header">
 		<div class="inner">
 			<a href="index.html" class="logo">{{$Plano["NomePlano"]}}</a>
+			<button class="voltar" onclick="goBack()">Voltar</button>
 		</div>
 	</header>
 

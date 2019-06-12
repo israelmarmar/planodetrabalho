@@ -7,8 +7,17 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 
+		<script>
+			function goBack() {
+  				window.history.back();
+			}
+		</script>
+
+	<script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/skel.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/util.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/main.js')}}"></script>
 		<script>
 			$(document).ready( function () {
 				$('form').submit( function () {
@@ -35,7 +44,7 @@
 				<div class="inner">
 					<a href="Ativ-incidentes.html" class="logo">
 						<strong>Incidentes</strong></a>
-						<button class="voltar">Voltar</button>
+						<button class="voltar" onclick="goBack()">Voltar</button>
 				</div>
 			</header>
 
@@ -112,7 +121,8 @@
 								<h3>Acompanhar Incidentes</h3>
 
 								@foreach($Incidentes as $Incidente)
-        							<a href="#" class="button">{{$Incidente["Causa"]}}</a>
+									<a href="#" class="button">{{$Incidente["Causa"]}}</a>
+									<br>
 								@endforeach
 						
 								<p></p>

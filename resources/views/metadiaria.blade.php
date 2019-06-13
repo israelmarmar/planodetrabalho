@@ -53,7 +53,7 @@
 				<!--Aqui deve trazer a data salva no banco -->
 				<br>
 				<h3>Comentários / Observações</h3>
-				<input name="observacoes" type="text" id="name" value={{$Meta["observacoes"]}} placeholder="Comentários">
+				<input name="observacoes" type="text" id="name" placeholder="Comentários" value={{$Meta["observacoes"]}}>
 				<br>
 				<input type="submit" class="button" value="Salvar" />
 			</form>

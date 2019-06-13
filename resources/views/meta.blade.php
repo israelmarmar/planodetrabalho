@@ -153,6 +153,12 @@
 					<label for="RotinaDefinida">Rotina Definida</label>
 					<input name="RotinaDefinida" id="RotinaDefinida" type="text" placeholder="Rotina Definida">
 
+					<label for="diaa">De:</label>
+					<input type="date" id="diaa" name="datainicio">
+
+
+					<label for="diaa">Até:</label>
+					<input type="date" id="diaa" name="datafim">
 
 				</div>
 

@@ -7,6 +7,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
+
+		<script>
+		function goBack() {
+  			window.history.back();
+		}
+		</script>
+
 	</head>
 	<body>
 
@@ -15,7 +22,7 @@
 				<div class="inner">
 					<a href="Ativ-incidentes.html" class="logo">
 						<strong>Relatório</strong></a>
-						<button class="voltar">Voltar</button>
+						<button class="voltar" onclick="goBack()">Voltar</button>
 				</div>
 			</header>
 

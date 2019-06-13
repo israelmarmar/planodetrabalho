@@ -61,7 +61,7 @@ Route::get('/metas/diaria/{id}', function ($id) {
 
 Route::get('/metas/semanal/{id}', function ($id) {
     $Semanais = (new SemanalController())->show($id);
-    return view('metadiaria',["type"=>"semanal","tipo"=>"Semanais","Meta"=>json_decode($Semanais,true)]);
+    return view('metadiaria',["id"=>$id,"type"=>"semanal","tipo"=>"Semanais","Meta"=>json_decode($Semanais,true)]);
 });
 
 Route::get('/atividades/meta/diaria/{id}/manutencao', function ($id) {

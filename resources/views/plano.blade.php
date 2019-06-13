@@ -52,7 +52,7 @@
 						<a href={{"/metas/".$Meta["id"]}} class="button">{{$Meta["Atividade"]}}</a>
 						<br>
 						@endforeach
-						<button class="button" id="btnaddmeta">+ Adicionar meta</button>
+						<!-- <button class="button" id="btnaddmeta">+ Adicionar meta</button> -->
 					</footer>
 				</div>
 
@@ -65,7 +65,7 @@
 						<a href={{"/atividades/".$Atividade["id"]}} class="button">{{$Atividade["NomeProcesso"]}}</a>
 						<br>
 						@endforeach
-						<button class="button" id="btnaddatividade">+ Adicionar atividade</button>
+						<!-- <button class="button" id="btnaddatividade">+ Adicionar atividade</button> -->
 					</footer>
 				</div>
 

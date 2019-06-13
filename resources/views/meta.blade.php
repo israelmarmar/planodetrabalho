@@ -110,7 +110,7 @@
 
 		<!-- metaModal content -->
 		<div class="modal-content">
-			<span class="close" id="closediaria">×</span>
+			<div class="close" id="closediaria">×</div>
 			<form id="formdiaria">
 
 				<div class="field half first">
@@ -143,7 +143,7 @@
 
 		<!-- metaModal content -->
 		<div class="modal-content">
-			<span class="close" id="closesemanal">×</span>
+			<div class="close" id="closesemanal">×</div>
 			<form id="formsemanal">
 
 				<div class="field half first">
@@ -173,7 +173,7 @@
 
 		<!-- metaModal content -->
 		<div class="modal-content">
-			<span class="close" id="closemensal">×</span>
+			<div class="close" id="closemensal">×</div>
 			<form id="formmensal">
 
 				<div class="field half first">

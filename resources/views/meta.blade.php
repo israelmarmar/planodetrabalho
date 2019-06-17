@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>Metas</title>
+	<title>Atividades</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
@@ -42,14 +42,14 @@
 	<section id="banner">
 		<div class="inner">
 			<header>
-				<h1>Qual meta você deseja verificar?</h1>
+				<h1>Qual atividade você deseja verificar?</h1>
 			</header>
 
 			<div class="flex ">
 
 				<div>
 					<span class=""></span>
-					<h3>Metas Diárias</h3>
+					<h3>Atividades Diárias</h3>
 					<br>
 					<button class="button" id="btnadddiaria">+ Criar meta diária</button>
 					<br>
@@ -65,7 +65,7 @@
 
 				<div>
 					<span class=""></span>
-					<h3>Metas Semanais</h3>
+					<h3>Atividades Semanais</h3>
 					<br>
 					<button class="button" id="btnaddsemanal">+ Criar meta semanal</button>
 					<br>
@@ -82,13 +82,13 @@
 				<div>
 					<span class=""></span>
 
-					<h3>Metas Mensais</h3>
+					<h3>Atividades Mensais</h3>
 					<br>
 					<button class="button" id="btnaddmensal">+ Criar meta mensal</button>
 					<br>
 					@foreach($Mensais as $Mensal)
 					<div class="button btnlist" data-tipo="mensal" id={{$Mensal["id"]}}>
-						<a href="#">{{$Mensal["Status"]}}</a>
+						<a href={{"mensal/".$Mensal["id"]}}>{{$Mensal["Status"]}}</a>
 						<span class="close">×</span>
 					</div>
 					<br>
@@ -120,15 +120,19 @@
 					<label for="RotinaDefinida">Rotina Definida</label>
 					<input name="RotinaDefinida" id="RotinaDefinida" type="text" placeholder="Rotina Definida">
 
+					<label for="metamensuravel">Meta a ser alcançado</label>
+					<input type="number" name="metamensuravel" id="metamensuravel">
 
 					<label for="diaa">De:</label>
 					<input type="date" id="diaa" name="datainicio">
 
-
 					<label for="diaa">Até:</label>
 					<input type="date" id="diaa" name="datafim">
 
-					<input type="hidden" name="observacoes" id="obs" value="&nbsp">
+					<label for="observacoes">Observações</label>
+					<input type="text" name="observacoes" id="obs">
+
+					<input type="hidden" name="resultado" id="res" value="0">
 
 				</div>
 

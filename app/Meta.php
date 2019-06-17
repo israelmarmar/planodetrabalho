@@ -14,8 +14,9 @@ class Meta extends Model
         return $this->belongsTo(Planodetrabalho::class);
     }
 
-    public function diaria(){
-        return $this->hasMany(Diaria::class);
+    public function diaria($datainicio){
+        //return $this->hasMany(Diaria::class);
+        return $this->hasMany(Diaria::class)->where('datainicio',$datainicio)->get();
     }
 
     public function semanal(){

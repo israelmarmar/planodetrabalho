@@ -90,8 +90,8 @@ class MetaController extends Controller
     }
 
     public function metas_diarias($id)
-    {
-        return Meta::find($id)->diaria;
+    {   
+        return Meta::find($id)->diaria(date("Y-m-d"));
     }
 
     public function metas_semanais($id)

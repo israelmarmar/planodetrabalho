@@ -11,10 +11,13 @@
 |
 */
 
+date_default_timezone_set('America/Manaus');
+
 use App\Http\Controllers\AtividadeController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\DiariaController;
 use App\Http\Controllers\SemanalController;
+use App\Http\Controllers\MensalController;
 use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\PlanodetrabalhoController;
 
@@ -62,6 +65,11 @@ Route::get('/metas/diaria/{id}', function ($id) {
 Route::get('/metas/semanal/{id}', function ($id) {
     $Semanais = (new SemanalController())->show($id);
     return view('metadiaria',["id"=>$id,"type"=>"semanal","tipo"=>"Semanais","Meta"=>json_decode($Semanais,true)]);
+});
+
+Route::get('/metas/mensal/{id}', function ($id) {
+    $Mensal = (new MensalController())->show($id);
+    return view('metamensal',["id"=>$id,"type"=>"mensal","tipo"=>"Mensal","Meta"=>json_decode($Mensal,true)]);
 });
 
 Route::get('/atividades/meta/diaria/{id}/manutencao', function ($id) {

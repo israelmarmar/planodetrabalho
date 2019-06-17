@@ -37,6 +37,16 @@
 				<h3> Nome da tarefa </h3>
 				<p>{{$Meta["RotinaDefinida"]}}</p>
 				<br>
+
+				<h3> Meta a ser alcançada </h3>
+				<p>{{$Meta["metamensuravel"]}}</p>
+				<br>
+
+				<h3> Tempo restante </h3>
+				<p id='time'>{{$Meta["restante"]}}</p>
+				<br>
+
+
 				<h3>Status</h3>
 				<select name="Status" id="Status">
 					<option selected>{{$Meta["Status"]}}</option>
@@ -52,8 +62,11 @@
 				<h3>De {{$Meta["datainicio"]}} Até {{$Meta["datafim"]}}</h3>
 				<!--Aqui deve trazer a data salva no banco -->
 				<br>
+				<h3>Resultado</h3>
+				<input name="resultado" type="text" id="resultado" placeholder="Resultado" value="{{$Meta["resultado"]}}">
+				<br>
 				<h3>Comentários / Observações</h3>
-				<input name="observacoes" type="text" id="name" placeholder="Comentários" value={{$Meta["observacoes"]}}>
+				<input name="observacoes" type="text" id="name" placeholder="Comentários" value="{{$Meta["observacoes"]}}">
 				<br>
 				<input type="submit" class="button" value="Salvar" />
 			</form>
@@ -77,26 +90,50 @@
 
 
 	<script>
+		var h1 = document.getElementById('time'),
+			seconds = h1.textContent.split(":")[2],
+			minutes = h1.textContent.split(":")[1],
+			hours = h1.textContent.split(":")[0],
+			t;
+
+		function timer() {
+			seconds--;
+			if (seconds <= -1) {
+				seconds = 59;
+				minutes--;
+				if (minutes <= -1) {
+					minutes = 59;
+					hours--;
+				}
+			}
+
+			h1.textContent = hours + ":" + minutes + ":" + seconds;
+
+		}
+
+		setInterval(timer, 1000);
+
 		$(document).ready(function() {
 
-					$('#formmeta').submit(function() {
-						var formdata = $(this).serialize();
-						$(this).find("input.button").attr("disabled", true);
-						console.log(formdata);
-						$.ajax({
-							type: "POST",
-							url: "{{ URL::asset('/'.$type) }}"+"/atualizar/"+"{{$id}}",
-							data: formdata,
-							success: function(data) {
-								console.log(data);
-								alert("Meta atualizada!");
-								location.reload();
-							}
-						});
-						return false;
-					});
+			$('#formmeta').submit(function() {
+				var formdata = $(this).serialize();
+				$(this).find("input.button").attr("disabled", true);
+				console.log(formdata);
+				$.ajax({
+					type: "POST",
+					url: "{{ URL::asset('/'.$type) }}" + "/atualizar/" + "{{$id}}",
+					data: formdata,
+					success: function(data) {
+						console.log(data);
+						alert("Meta atualizada!");
+						location.reload();
+					}
+				});
+				return false;
+			});
 
 		});
+
 	</script>
 
 </body>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Planodetrabalho;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MetaController;
+use App\Meta;
 
 class PlanodetrabalhoController extends Controller
 {
@@ -99,7 +101,15 @@ class PlanodetrabalhoController extends Controller
     }
 
     public function mostrar_metas($id){
-        return Planodetrabalho::find($id)->meta;
+
+        $Metas = Planodetrabalho::find($id)->meta;
+
+        for ($i = 0; $i < sizeof($Metas) - 1; $i++) {
+            $Diarias = (new MetaController())->metas_diarias_all($Metas[$i]["id"]);
+            $Metas[$i]["metas_diaria"] = $Diarias;
+        }
+
+        return $Metas;
     }
 
     public function mostrar_metas_por_data(Request $request, $id){

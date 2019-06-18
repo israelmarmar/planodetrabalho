@@ -19,6 +19,11 @@ class Meta extends Model
         return $this->hasMany(Diaria::class)->where('datainicio',$datainicio)->get();
     }
 
+    public function diaria_all(){
+        return $this->hasMany(Diaria::class);
+        //return $this->hasMany(Diaria::class)->where('datainicio',$datainicio)->get();
+    }
+
     public function semanal(){
         return $this->hasMany(Semanal::class);
     }

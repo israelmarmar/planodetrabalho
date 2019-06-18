@@ -23,6 +23,7 @@ class GerapdfController extends Controller
 
         $pdf = PDF::loadView('myPDF', $Data);
   
-        return $pdf->download('relatorio.pdf');
+        //return $pdf->download('relatorio.pdf');
+        return view('myPDF',$Data);
     }
 }

@@ -12,8 +12,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/main.css')}}}" />
 	<link rel="stylesheet" href="{{{ URL::asset('assets/css/modal.css')}}}" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
+	<script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/skel.min.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/util.js')}}"></script>
+	<script src="{{ URL::asset('assets/js/main.js')}}"></script>
 
 	<script>
 		function goBack() {
@@ -213,11 +215,6 @@
 			});
 		});
 	</script>
-
-	<script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
-	<script src="{{ URL::asset('assets/js/skel.min.js')}}"></script>
-	<script src="{{ URL::asset('assets/js/util.js')}}"></script>
-	<script src="{{ URL::asset('assets/js/main.js')}}"></script>
 
 </body>
 

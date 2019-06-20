@@ -21,10 +21,6 @@ use App\Http\Controllers\MensalController;
 use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\PlanodetrabalhoController;
 
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
-
 
 Route::get('/', function () {
     $Planodetrabalho = (new PlanodetrabalhoController())->index();

@@ -18,10 +18,12 @@ class CreateDiariaTable extends Migration
             $table->string('RotinaDefinida');
             $table->string('Checagem')->default('0');
             $table->string('Backup')->default('0');
-            $table->string('Manutencao');
+            $table->string('Manutencao')->default('0');
             $table->string('Status')->default('A Fazer');
-            $table->string('DataInicio');
-            $table->string('DataFim');
+            $table->string('Datainicio');
+            $table->string('Datafim');
+            $table->string('metamensuravel');
+            $table->string('resultado');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')
                 ->references('id')->on('meta')

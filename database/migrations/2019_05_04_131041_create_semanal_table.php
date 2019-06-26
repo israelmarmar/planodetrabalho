@@ -20,6 +20,7 @@ class CreateSemanalTable extends Migration
             $table->string('Backup')->default('0');
             $table->string('Manutencao')->default('[{"Item":"","Status":"A fazer"}]');
             $table->string('Status')->default('0');
+            $table->string('observacoes');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')
                 ->references('id')->on('meta')

@@ -91,7 +91,7 @@ class MetaController extends Controller
 
     public function metas_diarias($id)
     {   
-        return Meta::find($id)->diaria("2019-06-20");
+        return Meta::find($id)->diaria("2019-06-29");
     }
 
     public function metas_diarias_all($id)

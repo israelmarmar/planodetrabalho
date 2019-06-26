@@ -24,6 +24,7 @@ class CreateDiariaTable extends Migration
             $table->string('Datafim');
             $table->string('metamensuravel');
             $table->string('resultado');
+            $table->string('observacoes');
             $table->unsignedBigInteger('meta_id');
             $table->foreign('meta_id')
                 ->references('id')->on('meta')

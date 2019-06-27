@@ -67,7 +67,7 @@
 						<a href={{"/atividades/".$Atividade["id"]}} class="button">{{$Atividade["NomeProcesso"]}}</a>
 						<br>
 						@endforeach
-						<button class="button" id="btnaddatividade">+ Adicionar atividade</button>
+						<button class="button" id="btnaddatividade">+ Adicionar processos</button>
 					</footer>
 				</div>
 

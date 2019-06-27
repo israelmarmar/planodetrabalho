@@ -21,7 +21,7 @@
 		function goBack() {
   			window.history.back();
 		}
-		</script>
+	</script>
 
 </head>
 
@@ -50,11 +50,16 @@
 					<h3>METAS</h3>
 					<br>
 					<footer>
+						<button class="button" id="btnaddmeta">+ Adicionar meta</button>
+						<br>
 						@foreach($Metas as $Meta)
-						<a href={{"/metas/".$Meta["id"]}} class="button">{{$Meta["Atividade"]}}</a>
+						<div class="button btnlist" id={{$Meta["id"]}}>
+							<a href={{"/metas/".$Meta["id"]}}>{{$Meta["Atividade"]}}</a>
+							<span class="close">×</span>
+						</div>
 						<br>
 						@endforeach
-						<button class="button" id="btnaddmeta">+ Adicionar meta</button>
+						
 					</footer>
 				</div>
 
@@ -63,11 +68,16 @@
 					<h3>PROCESSOS</h3>
 					<br>
 					<footer>
+						<button class="button" id="btnaddatividade">+ Adicionar processos</button>
+						<br>
 						@foreach($Atividades as $Atividade)
-						<a href={{"/atividades/".$Atividade["id"]}} class="button">{{$Atividade["NomeProcesso"]}}</a>
+						<div class="button btnlist" id={{$Atividade["id"]}}>
+							<a href={{"/atividades/".$Atividade["id"]}}>{{$Atividade["NomeProcesso"]}}</a>
+							<span class="close">×</span>
+						</div>
 						<br>
 						@endforeach
-						<button class="button" id="btnaddatividade">+ Adicionar processos</button>
+						
 					</footer>
 				</div>
 
@@ -84,8 +94,8 @@
 
 					<input type="hidden" name="planodetrabalho_id" id="id" value={{$id}}>
 
-					<label for="Atividade">Atividade</label>
-					<input name="Atividade" id="Atividade" type="text" placeholder="Atividade">
+					<label for="Atividade">Meta</label>
+					<input name="Atividade" id="Atividade" type="text" placeholder="Nome da meta">
 
 					<label for="Responsavel">Responsavel</label>
 					<input name="Responsavel" id="Responsavel" type="text" placeholder="Responsavel">

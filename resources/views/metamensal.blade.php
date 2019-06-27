@@ -9,13 +9,20 @@
 		 <meta name="viewport" content="width=device-width, initial-scale=1" />
          <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}" />
 	</head>
+
+	<script>
+		function goBack() {
+  			window.history.back();
+		}
+	</script>
+
 	<body>
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
 					<a href="index.html" class="logo"><strong>Metas Mensais</strong></a>
-					<button class="voltar">Voltar</button>
+					<button class="voltar" onclick="goBack()">Voltar</button>
 				</div>
 			</header>
 

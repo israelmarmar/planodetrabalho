@@ -121,7 +121,7 @@
 								<h3>Acompanhar Incidentes</h3>
 
 								@foreach($Incidentes as $Incidente)
-									<a href="#" class="button">{{$Incidente["Causa"]}}</a>
+									<a href={{ URL::asset('/').'regincidente/'.$Incidente['id']}} class="button">{{$Incidente["Causa"]}}</a>
 									<br>
 								@endforeach
 						
@@ -131,7 +131,7 @@
 						    </div>
 						          
 
-						</d iv>
+						</div>
 						  
 
 					</div>

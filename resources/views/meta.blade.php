@@ -51,7 +51,7 @@
 					<span class=""></span>
 					<h3>Atividades Diárias</h3>
 					<br>
-					<button class="button" id="btnadddiaria">+ Criar meta diária</button>
+					<button class="button" id="btnadddiaria">+ Nova Atividade Diária</button>
 					<br>
 					@foreach($Diarias as $Diaria)
 					<div class="button btnlist" data-tipo="diaria" id={{$Diaria["id"]}}>
@@ -67,7 +67,7 @@
 					<span class=""></span>
 					<h3>Atividades Semanais</h3>
 					<br>
-					<button class="button" id="btnaddsemanal">+ Criar meta semanal</button>
+					<button class="button" id="btnaddsemanal">+ Nova Atividade Semanal</button>
 					<br>
 					@foreach($Semanais as $Semanal)
 					<div class="button btnlist" data-tipo="semanal" id={{$Semanal["id"]}}>
@@ -84,7 +84,7 @@
 
 					<h3>Atividades Mensais</h3>
 					<br>
-					<button class="button" id="btnaddmensal">+ Criar meta mensal</button>
+					<button class="button" id="btnaddmensal">+ Nova Atividade Mensal</button>
 					<br>
 					@foreach($Mensais as $Mensal)
 					<div class="button btnlist" data-tipo="mensal" id={{$Mensal["id"]}}>

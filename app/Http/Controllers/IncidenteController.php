@@ -71,7 +71,18 @@ class IncidenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $incidente = Incidente::find($id);
+
+
+        if ($request->has('Status'))
+            $incidente->Status = $request->Status;
+
+
+        $incidente->touch();
+
+        $incidente->save();
+
+        return ["status" => "ok", "code" => 200, 'message' => 'alterado'];
     }
 
     /**

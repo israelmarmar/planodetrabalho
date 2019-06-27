@@ -20,7 +20,7 @@ use App\Http\Controllers\SemanalController;
 use App\Http\Controllers\MensalController;
 use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\PlanodetrabalhoController;
-
+use App\Incidente;
 
 Route::get('/', function () {
     $Planodetrabalho = (new PlanodetrabalhoController())->index();
@@ -46,6 +46,12 @@ Route::get('/atividades/{id}', function ($id) {
 Route::get('/atividades/{id}/incidente', function ($id) {
     $Incidentes = (new AtividadeController())->mostrar_incidentes($id);
     return view('incidente',['Incidentes'=>json_decode($Incidentes,true),"id"=>$id]);
+
+});
+
+Route::get('/regincidente/{id}', function ($id) {
+    $Incidente = (new IncidenteController())->show($id);
+    return view('regincidente',['Incidente'=>json_decode($Incidente,true),"id"=>$id]);
 
 });
 
@@ -152,6 +158,8 @@ Route::post('/relatorio/atualizar/{id}', 'RelatorioController@update');
 
 Route::get('/incidente', 'IncidenteController@index');
 Route::get('/incidente/criar', 'IncidenteController@create')->name('criarincidente');
-
+Route::get('/incidente/{id}', 'IncidenteController@show');
+Route::post('/incidente/delete/{id}', 'IncidenteController@destroy');
+Route::post('/incidente/atualizar/{id}', 'IncidenteController@update');
 
 Route::get('generate-pdf','GerapdfController@generatePDF');

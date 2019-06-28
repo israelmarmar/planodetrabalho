@@ -53,7 +53,7 @@
 						<button class="button" id="btnaddmeta">+ Adicionar meta</button>
 						<br>
 						@foreach($Metas as $Meta)
-						<div class="button btnlist" id={{$Meta["id"]}}>
+						<div class="button btnlist" data-tipo="meta" id={{$Meta["id"]}}>
 							<a href={{"/metas/".$Meta["id"]}}>{{$Meta["Atividade"]}}</a>
 							<span class="close">×</span>
 						</div>
@@ -71,7 +71,7 @@
 						<button class="button" id="btnaddatividade">+ Adicionar processos</button>
 						<br>
 						@foreach($Atividades as $Atividade)
-						<div class="button btnlist" id={{$Atividade["id"]}}>
+						<div class="button btnlist" data-tipo="atividade" id={{$Atividade["id"]}}>
 							<a href={{"/atividades/".$Atividade["id"]}}>{{$Atividade["NomeProcesso"]}}</a>
 							<span class="close">×</span>
 						</div>
@@ -196,6 +196,25 @@
 		}
 
 		$(document).ready(function() {
+
+			$("span.close").click(function() {
+				var div=$(this).parent();
+				var id=div.prop("id");
+				var tipo=div.data("tipo");
+
+				if(confirm("Deseja realmente remover?")){
+				$.ajax({
+					type: "POST",
+					url: "{{ URL::asset('/') }}"+tipo+"/delete/"+id,
+					success: function(data) {
+						div.slideUp();
+					}
+				});
+				}
+				return false;
+			});
+
+
 			$('#formmeta').submit(function() {
 				var formdata = $(this).serialize();
 				$.ajax({
